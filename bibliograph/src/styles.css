@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Prata&display=swap");
+
+:root {
+  --main-color-blue: #6278f7;
+  --main-color-cyan: #95ffd4;
+  --main-color-black: #2e2e2e;
+  --main-color-light-gray: #a4a4a4;
+  --main-color-dark-gray: #2e2e2e;
+
+  --highlight-color-blue: #82cffa;
+  --highlight-color-green: #a6d157;
+  --highlight-color-red: #e06b69;
+  --highlight-color-pink: #db6ebf;
+  --highlight-color-yellow: #ff8a29;
+
+  -bg-color-blue-one: #e8ffff;
+  -bg-color-blue-two: #e9ffe3;
+  -bg-color-pink-one: #fff0fa;
+  -bg-color-pink-two: #fff1e4;
+  -bg-color-pink-three: #ffe3e3;
+
+  --main-font: "Montserrat", sans-serif;
+  --secondary-font: "Prata", serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--main-font);
+}
