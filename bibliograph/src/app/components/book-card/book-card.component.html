@@ -1,12 +1,20 @@
 <article class="card">
-  <div>
-    <img
-      class="book-image"
-      [src]="book.image"
-      [alt]="'Imagem do livro ' + book.title + '.'"
-    />
-  </div>
+  <div class="border-top"></div>
 
-  <h3 class="title">{{ book.title }}</h3>
-  <p class="authorship">{{ book.authorship }}</p>
+  <button class="favorite-button">
+    <span>{{ "\u2661" }}</span>
+  </button>
+
+  <div class="info-card-container">
+    <div>
+      <img
+        class="book-image"
+        [src]="book.image"
+        [alt]="'Imagem do livro ' + book.title + '.'"
+      />
+    </div>
+
+    <h3 class="title">{{ book.title }}</h3>
+    <p class="authorship">{{ book.authorship }}</p>
+  </div>
 </article>
