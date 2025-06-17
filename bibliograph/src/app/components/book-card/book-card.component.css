@@ -1,0 +1,21 @@
+.card {
+  border-radius: 0.8rem;
+  box-shadow: 5px 5px 3px var(--main-color-dark-gray);
+
+  width: 25rem;
+  padding-bottom: 1.6rem;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+}
+
+.title {
+  font-style: bold;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.authorship {
+  text-align: center;
+  font-size: 1.6rem;
+  font-style: normal;
+}
