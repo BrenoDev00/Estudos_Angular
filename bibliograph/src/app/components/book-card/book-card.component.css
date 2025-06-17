@@ -27,11 +27,8 @@
 
 .favorite-button span {
   font-size: 3rem;
-  color: var(--main-color-dark-gray);
-}
-
-.favorite-button span:hover {
   color: var(--highlight-color-red);
+  fill: red;
 }
 
 .info-card-container {

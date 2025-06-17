@@ -1,8 +1,8 @@
 <article class="card">
   <div class="border-top"></div>
 
-  <button class="favorite-button">
-    <span>{{ "\u2661" }}</span>
+  <button class="favorite-button" (click)="toggleFavorite()">
+    <span>{{ book.favorite ? "\u2764" : "\u2661" }}</span>
   </button>
 
   <div class="info-card-container">
