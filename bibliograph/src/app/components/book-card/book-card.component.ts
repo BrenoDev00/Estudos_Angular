@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BookInterface } from './book.type';
 
 @Component({
   selector: 'app-book-card',
@@ -11,7 +12,7 @@ export class BookCardComponent {
     this.book.favorite = !this.book.favorite;
   }
 
-  book = {
+  book: BookInterface = {
     title: 'As ondas',
     authorship: 'Virginia Woolf',
     favorite: false,
