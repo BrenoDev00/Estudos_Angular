@@ -35,3 +35,15 @@ body {
   font-family: var(--main-font);
   overflow-x: hidden;
 }
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 58%;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 50%;
+  }
+}

@@ -1,8 +1,8 @@
 .card {
   border-radius: 0.8rem;
   box-shadow: 0.1rem 0.1rem 0.6rem var(--main-color-dark-gray);
-  min-height: 30rem;
 
+  min-height: 30rem;
   width: 25rem;
   position: relative;
 }
@@ -50,7 +50,7 @@
 }
 
 .title {
-  font-style: bold;
+  font-weight: bold;
   font-size: 2rem;
   text-align: center;
 }
