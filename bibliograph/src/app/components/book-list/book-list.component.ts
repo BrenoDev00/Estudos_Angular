@@ -54,7 +54,5 @@ export class BookListComponent implements OnInit {
         books: this.booksByGender.get('tecnicos') ?? [],
       },
     ];
-
-    console.log(this.genders);
   }
 }
