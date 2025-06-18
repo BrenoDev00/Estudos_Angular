@@ -2,19 +2,19 @@
   <div class="border-top"></div>
 
   <button class="favorite-button" (click)="toggleFavorite()">
-    <span>{{ book.favorite ? "\u2764" : "\u2661" }}</span>
+    <span>{{ book().favorite ? "\u2764" : "\u2661" }}</span>
   </button>
 
   <div class="info-card-container">
     <div>
       <img
         class="book-image"
-        [src]="book.image"
-        [alt]="'Imagem do livro ' + book.title + '.'"
+        [src]="book().image"
+        [alt]="'Imagem do livro ' + book().title + '.'"
       />
     </div>
 
-    <h3 class="title">{{ book.title }}</h3>
-    <p class="authorship">{{ book.authorship }}</p>
+    <h3 class="title">{{ book().title }}</h3>
+    <p class="authorship">{{ book().authorship }}</p>
   </div>
 </article>
