@@ -1,0 +1,34 @@
+section {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+
+  padding-bottom: 4.8rem;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-family: var(--secondary-font);
+  color: var(--main-color-black);
+  text-align: center;
+}
+
+.title::after {
+  content: "";
+  width: 3.2rem;
+  height: 0.4rem;
+  background-color: var(--main-color-blue);
+
+  position: absolute;
+  bottom: -5.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.book-list-container {
+  display: flex;
+  gap: 2.4rem;
+}

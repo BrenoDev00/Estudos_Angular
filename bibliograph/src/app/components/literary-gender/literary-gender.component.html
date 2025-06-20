@@ -1,7 +1,9 @@
 <section>
-  <h2>{{ gender().value }}</h2>
+  <h2 class="title">{{ gender().value }}</h2>
 
-  @for(book of gender().books; track book){
-  <app-book-card [book]="book"></app-book-card>
-  }
+  <div class="book-list-container">
+    @for(book of gender().books; track book){
+    <app-book-card [book]="book"></app-book-card>
+    }
+  </div>
 </section>

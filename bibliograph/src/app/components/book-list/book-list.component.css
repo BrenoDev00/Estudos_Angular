@@ -22,3 +22,7 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+.literary-gender-container {
+  margin-top: 13rem;
+}
