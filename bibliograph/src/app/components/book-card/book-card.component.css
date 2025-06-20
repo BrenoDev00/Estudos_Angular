@@ -53,10 +53,12 @@
   font-weight: bold;
   font-size: 2rem;
   text-align: center;
+  color: var(--main-color-black);
 }
 
 .authorship {
   text-align: center;
   font-size: 1.6rem;
   font-style: normal;
+  color: var(--main-color-black);
 }

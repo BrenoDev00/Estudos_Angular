@@ -1,6 +1,13 @@
 <section>
   <h2 class="title">{{ gender().value }}</h2>
 
+  @if(gender().books.length === 0){
+  <div class="empty-list-container">
+    <img src="images/no-books.png" alt="Não há livros neste gênero." />
+    <p>Não há livros neste gênero ainda.</p>
+  </div>
+  }
+
   <div class="book-list-container">
     @for(book of gender().books; track book){
     <app-book-card [book]="book"></app-book-card>
