@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { BookCardComponent } from '../book-card/book-card.component';
-import { mockedBooks } from '../../constants/mocked-books';
+import { BookGenderInterface } from '../book-card/book-gender.type';
 
 @Component({
   selector: 'app-literary-gender',
@@ -9,5 +9,5 @@ import { mockedBooks } from '../../constants/mocked-books';
   styleUrl: './literary-gender.component.css',
 })
 export class LiteraryGenderComponent {
-  book = mockedBooks[0];
+  gender = input.required<BookGenderInterface>();
 }

@@ -1,3 +1,7 @@
 <main>
   <h1 class="main-title">Minha Organização:</h1>
+
+  @for(gender of genders; track gender){
+  <app-literary-gender [gender]="gender"></app-literary-gender>
+  }
 </main>

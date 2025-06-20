@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { BookGenderInterface } from '../book-card/book-gender.type';
 import { BookInterface } from '../book-card/book.type';
 import { mockedBooks } from '../../constants/mocked-books';
+import { LiteraryGenderComponent } from '../literary-gender/literary-gender.component';
 
 @Component({
   selector: 'app-book-list',
-  imports: [],
+  imports: [LiteraryGenderComponent],
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.css',
 })

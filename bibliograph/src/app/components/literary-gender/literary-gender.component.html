@@ -1,2 +1,7 @@
-<app-book-card [book]="book"></app-book-card>
-    
+<section>
+  <h2>{{ gender().value }}</h2>
+
+  @for(book of gender().books; track book){
+  <app-book-card [book]="book"></app-book-card>
+  }
+</section>
