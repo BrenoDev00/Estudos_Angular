@@ -1,5 +1,5 @@
 <article class="card">
-  <div class="border-top"></div>
+  <div class="border-top" [ngClass]="book().gender.id"></div>
 
   <button class="favorite-button" (click)="toggleFavorite()">
     <span>{{ book().favorite ? "\u2764" : "\u2661" }}</span>

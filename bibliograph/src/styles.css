@@ -11,13 +11,13 @@
   --highlight-color-green: #a6d157;
   --highlight-color-red: #e06b69;
   --highlight-color-pink: #db6ebf;
-  --highlight-color-yellow: #ff8a29;
+  --highlight-color-orange: #ff8a29;
 
-  -bg-color-blue-one: #e8ffff;
-  -bg-color-blue-two: #e9ffe3;
-  -bg-color-pink-one: #fff0fa;
-  -bg-color-pink-two: #fff1e4;
-  -bg-color-pink-three: #ffe3e3;
+  --bg-color-blue-one: #e8ffff;
+  --bg-color-blue-two: #e9ffe3;
+  --bg-color-pink-one: #fff0fa;
+  --bg-color-pink-two: #fff1e4;
+  --bg-color-pink-three: #ffe3e3;
 
   --main-font: "Montserrat", sans-serif;
   --secondary-font: "Prata", serif;

@@ -7,6 +7,13 @@ section {
   gap: 3rem;
 
   padding-bottom: 4.8rem;
+  width: 100vw;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title {
@@ -16,16 +23,13 @@ section {
   text-align: center;
 }
 
-.title::after {
-  content: "";
+.border-bottom {
   width: 3.2rem;
   height: 0.4rem;
-  background-color: var(--main-color-blue);
 
-  position: absolute;
-  bottom: -5.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  display: block;
+  margin-top: -0.5rem;
+  z-index: 2;
 }
 
 .empty-list-container {
@@ -48,4 +52,40 @@ section {
 .book-list-container {
   display: flex;
   gap: 2.4rem;
+}
+
+/* Cores de fundo das seções, cards e bordas de títulos */
+.romance {
+  background-color: var(--bg-color-pink-three);
+}
+.romance .border-bottom {
+  background-color: var(--highlight-color-red);
+}
+
+.misterio {
+  background-color: var(--bg-color-blue-one);
+}
+.misterio .border-bottom {
+  background-color: var(--highlight-color-blue);
+}
+
+.fantasia {
+  background-color: var(--bg-color-blue-two);
+}
+.fantasia .border-bottom {
+  background-color: var(--highlight-color-green);
+}
+
+.ficcao-cientifica {
+  background-color: var(--bg-color-pink-one);
+}
+.ficcao-cientifica .border-bottom {
+  background-color: var(--highlight-color-pink);
+}
+
+.tecnicos {
+  background-color: var(--bg-color-pink-three);
+}
+.tecnicos .border-bottom {
+  background-color: var(--highlight-color-orange);
 }

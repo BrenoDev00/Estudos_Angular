@@ -1,5 +1,8 @@
-<section>
-  <h2 class="title">{{ gender().value }}</h2>
+<section [ngClass]="gender().id">
+  <div class="title-container">
+    <h2 class="title">{{ gender().value }}</h2>
+    <span class="border-bottom"></span>
+  </div>
 
   @if(gender().books.length === 0){
   <div class="empty-list-container">
