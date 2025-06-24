@@ -1,29 +1,29 @@
-<form>
+<form (ngSubmit)="this.onSubmit()">
   <h1>Nova transação</h1>
 
   <div id="form-fields-container">
     <app-select-field
-      id="transaction-option"
-      label="Transação"
-      name="transaction-option"
+      [id]="'transaction-options'"
+      [name]="'transaction-options'"
+      [label]="'Transação'"
       [required]="true"
-      optionPlaceholder="Selecione o tipo de transação"
+      [optionPlaceholder]="'Selecione o tipo de transação'"
       [selectOptions]="['Depósito', 'Saque']"
     />
 
     <app-input-field
-      name="transaction-value"
-      id="transaction-value"
-      label="Valor"
-      type="number"
-      placeholder="R$ 00,00"
+      [id]="'transaction-value'"
+      [name]="'transaction-value'"
+      [label]="'Valor'"
+      [type]="'number'"
+      [placeholder]="'R$ 00,00'"
       [required]="true"
-      step="0.01"
-      min="0.01"
+      [step]="'0.01'"
+      [min]="'0.01'"
     />
   </div>
 
   <div id="button-container">
-    <app-button type="submit" label="Confirmar transação" />
+    <app-button [type]="'submit'" [label]="'Confirmar transação'" />
   </div>
 </form>
