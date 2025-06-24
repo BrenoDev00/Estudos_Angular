@@ -15,5 +15,9 @@
 main {
   display: flex;
   justify-content: center;
-  margin-top: 5rem;
+  margin-top: 2.4rem;
+
+  background-color: var(--bg-light-blue);
+  border-radius: 0.8rem;
+  padding: 3.2rem;
 }
