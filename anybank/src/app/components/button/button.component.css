@@ -1,0 +1,20 @@
+button {
+  all: unset;
+  background-color: var(--primary-blue-highlight);
+  border-radius: 1.6rem;
+  padding: 0.8rem 1.6rem;
+
+  cursor: pointer;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+button:hover {
+  background-color: var(--primary-blue-hover);
+  transition: 0.2s;
+}
+
+button:active {
+  background-color: var(--primary-blue-pressed);
+}

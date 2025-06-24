@@ -14,6 +14,8 @@ export class SelectFieldComponent {
 
   name: InputSignal<string> = input.required<string>();
 
+  required: InputSignal<boolean> = input.required<boolean>();
+
   optionPlaceholder: InputSignal<string> = input.required<string>();
 
   selectOptions: InputSignal<string[]> = input.required<string[]>();

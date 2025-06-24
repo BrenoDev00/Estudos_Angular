@@ -3,11 +3,25 @@
 
   <div id="form-fields-container">
     <app-select-field
-      id="transaction-field"
+      id="transaction-option"
       label="Transação"
-      name="transaction-field"
+      name="transaction-option"
+      [required]="true"
       optionPlaceholder="Selecione o tipo de transação"
       [selectOptions]="['Depósito', 'Saque']"
     />
+
+    <app-input-field
+      name="transaction-value"
+      id="transaction-value"
+      label="Valor"
+      type="number"
+      placeholder="R$ 00,00"
+      [required]="true"
+    />
+  </div>
+
+  <div id="button-container">
+    <app-button type="submit" label="Confirmar transação" />
   </div>
 </form>

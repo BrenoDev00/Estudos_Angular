@@ -1,8 +1,8 @@
 <div id="select-field-container">
   <label [for]="this.id()">{{ this.label() }}</label>
 
-  <select [name]="this.name()" [id]="this.id()">
-    <option [value]="this.optionPlaceholder()" selected disabled>
+  <select [name]="this.name()" [id]="this.id()" [required]="this.required()">
+    <option value="" selected disabled>
       {{ this.optionPlaceholder() }}
     </option>
 

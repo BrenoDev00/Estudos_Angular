@@ -1,0 +1,11 @@
+<div id="input-field-container">
+  <label [for]="this.id()">{{ this.label() }}</label>
+
+  <input
+    [type]="this.type()"
+    [name]="this.name()"
+    [placeholder]="this.placeholder()"
+    [required]="this.required()"
+    [id]="this.id()"
+  />
+</div>

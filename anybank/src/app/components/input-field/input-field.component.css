@@ -1,4 +1,4 @@
-#select-field-container {
+#input-field-container {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -10,17 +10,16 @@ label {
   font-size: 1.6rem;
 }
 
-select {
+input {
+  all: unset;
   border-radius: 1.6rem;
   border: 2px solid var(--neutral-black);
 
   padding: 0.5rem 0.7rem;
-  cursor: pointer;
-
-  width: 31.7rem;
+  width: 30rem;
   font-size: 1.6rem;
 }
 
-select:focus {
+input:focus {
   border: 2px solid var(--primary-blue-pressed);
 }
