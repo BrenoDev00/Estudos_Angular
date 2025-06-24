@@ -1,0 +1,13 @@
+<div id="select-field-container">
+  <label [for]="this.id()">{{ this.label() }}</label>
+
+  <select [name]="this.name()" [id]="this.id()">
+    <option [value]="this.optionPlaceholder()" selected disabled>
+      {{ this.optionPlaceholder() }}
+    </option>
+
+    @for(option of this.selectOptions(); track option){
+    <option [value]="option">{{ option }}</option>
+    }
+  </select>
+</div>

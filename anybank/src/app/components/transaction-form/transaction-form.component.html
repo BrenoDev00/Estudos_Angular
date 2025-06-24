@@ -1,0 +1,13 @@
+<form>
+  <h1>Nova transação</h1>
+
+  <div id="form-fields-container">
+    <app-select-field
+      id="transaction-field"
+      label="Transação"
+      name="transaction-field"
+      optionPlaceholder="Selecione o tipo de transação"
+      [selectOptions]="['Depósito', 'Saque']"
+    />
+  </div>
+</form>

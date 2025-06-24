@@ -1,0 +1,23 @@
+#select-field-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: flex-start;
+}
+
+label {
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+select {
+  border-radius: 1.6rem;
+  border: 2px solid var(--neutral-black);
+  padding: 0.5rem 0.7rem;
+  cursor: pointer;
+  width: 30rem;
+}
+
+select:focus {
+  border: 2px solid var(--primary-blue-pressed);
+}
