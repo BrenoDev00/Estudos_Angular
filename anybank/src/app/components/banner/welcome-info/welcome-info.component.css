@@ -1,0 +1,15 @@
+#user-date-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+time {
+  font-size: 1.3rem;
+}
+
+#user-message {
+  all: unset;
+  font-size: 3.1rem;
+  font-weight: 600;
+}

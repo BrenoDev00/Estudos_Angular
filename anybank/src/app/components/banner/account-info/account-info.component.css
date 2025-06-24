@@ -1,0 +1,30 @@
+#account-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+#account-info-container p {
+  margin: 0;
+}
+
+#account-info-container > p:first-child {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+#division-line {
+  background-color: var(--neutral-black);
+  height: 0.2rem;
+  width: 18rem;
+}
+
+#account-info-container > p:nth-child(3) {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+#balance {
+  font-size: 3.1rem;
+  font-weight: bold;
+}

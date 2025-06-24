@@ -1,6 +1,7 @@
 {
   "name": "anybank",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Aplicação front-end financeira.",
   "scripts": {
     "ng": "ng",
     "dev": "ng serve",

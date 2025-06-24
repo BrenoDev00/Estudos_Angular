@@ -1,11 +1,4 @@
 <header>
-  <div id="user-date-info">
-    <time [dateTime]="this.currentDate | date : 'EEEE, dd/MM/yyyy'">{{
-      this.currentDate | date : "EEEE, dd/MM/yyy"
-    }}</time>
-
-    <p id="user-message">Olá, Breno :)</p>
-  </div>
-
-  <div></div>
+  <app-welcome-info />
+  <app-account-info />
 </header>
