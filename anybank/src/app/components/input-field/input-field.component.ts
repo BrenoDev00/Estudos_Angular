@@ -7,15 +7,19 @@ import { Component, input, InputSignal } from '@angular/core';
   styleUrl: './input-field.component.css',
 })
 export class InputFieldComponent {
+  id: InputSignal<string> = input.required<string>();
+
   type: InputSignal<string> = input.required<string>();
 
   name: InputSignal<string> = input.required<string>();
+
+  label: InputSignal<string> = input.required<string>();
 
   placeholder: InputSignal<string> = input.required<string>();
 
   required: InputSignal<boolean> = input.required<boolean>();
 
-  label: InputSignal<string> = input.required<string>();
+  min: InputSignal<string | undefined> = input<string | undefined>();
 
-  id: InputSignal<string> = input.required<string>();
+  step: InputSignal<string | undefined> = input<string | undefined>();
 }

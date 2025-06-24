@@ -2,10 +2,12 @@
   <label [for]="this.id()">{{ this.label() }}</label>
 
   <input
-    [type]="this.type()"
+    [id]="this.id()"
     [name]="this.name()"
+    [type]="this.type()"
     [placeholder]="this.placeholder()"
     [required]="this.required()"
-    [id]="this.id()"
+    [step]="this.step()"
+    [min]="this.min()"
   />
 </div>
