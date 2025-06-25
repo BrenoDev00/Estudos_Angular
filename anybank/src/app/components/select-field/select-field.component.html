@@ -1,7 +1,13 @@
 <div id="select-field-container">
   <label [for]="this.id()">{{ this.label() }}</label>
 
-  <select [name]="this.name()" [id]="this.id()" [required]="this.required()">
+  <select
+    [name]="this.name()"
+    [id]="this.id()"
+    [required]="this.required()"
+    [value]="this.value"
+    (change)="this.updateSelectValue($event)"
+  >
     <option value="" selected disabled>
       {{ this.optionPlaceholder() }}
     </option>

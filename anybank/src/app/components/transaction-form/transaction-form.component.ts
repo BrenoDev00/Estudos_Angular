@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { SelectFieldComponent } from '../select-field/select-field.component';
 import { ButtonComponent } from '../button/button.component';
 import { InputFieldComponent } from '../input-field/input-field.component';
+import { FormValuesInterface } from './form-values.type';
 
 @Component({
   selector: 'app-transaction-form',
@@ -16,9 +17,17 @@ import { InputFieldComponent } from '../input-field/input-field.component';
   styleUrl: './transaction-form.component.css',
 })
 export class TransactionFormComponent {
-  value: string = '123';
+  formValues: FormValuesInterface = {
+    transactionType: '',
+    transactionValue: '',
+  };
 
   onSubmit() {
-    alert(`valor: ${this.value}`);
+    alert(
+      `tipo: ${this.formValues.transactionType}\nvalor: ${this.formValues.transactionValue}`
+    );
+
+    this.formValues.transactionType = '';
+    this.formValues.transactionValue = '';
   }
 }

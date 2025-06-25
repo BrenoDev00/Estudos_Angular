@@ -1,4 +1,4 @@
-<form (ngSubmit)="this.onSubmit()">
+<form (ngSubmit)="this.onSubmit()" ngNativeValidate>
   <h1>Nova transação</h1>
 
   <div id="form-fields-container">
@@ -9,6 +9,7 @@
       [required]="true"
       [optionPlaceholder]="'Selecione o tipo de transação'"
       [selectOptions]="['Depósito', 'Saque']"
+      [(ngModel)]="this.formValues.transactionType"
     />
 
     <app-input-field
@@ -20,6 +21,7 @@
       [required]="true"
       [step]="'0.01'"
       [min]="'0.01'"
+      [(ngModel)]="this.formValues.transactionValue"
     />
   </div>
 
