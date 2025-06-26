@@ -3,7 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { SelectFieldComponent } from '../select-field/select-field.component';
 import { ButtonComponent } from '../button/button.component';
 import { InputFieldComponent } from '../input-field/input-field.component';
-import { FormValuesInterface } from './form-values.type';
+import { Transaction } from '../../models/transaction';
+import { TransactionTypeEnum } from '../../types/models/transaction.type';
 
 @Component({
   selector: 'app-transaction-form',
@@ -17,14 +18,19 @@ import { FormValuesInterface } from './form-values.type';
   styleUrl: './transaction-form.component.css',
 })
 export class TransactionFormComponent {
-  formValues: FormValuesInterface = {
+  formValues = {
     transactionType: '',
     transactionValue: '',
   };
 
   createdTransaction: OutputEmitterRef<void> = output<void>();
 
-  onSubmit() {
+  onSubmit(): void {
+    const transaction = new Transaction(
+      this.formValues.transactionType as TransactionTypeEnum,
+      Number(this.formValues.transactionValue)
+    );
+
     this.createdTransaction.emit();
 
     this.formValues.transactionType = '';

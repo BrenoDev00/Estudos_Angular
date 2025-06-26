@@ -9,7 +9,7 @@ import { TransactionFormComponent } from './components/transaction-form/transact
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  processTransaction() {
+  processTransaction(): void {
     alert('transação adicionada');
   }
 }
