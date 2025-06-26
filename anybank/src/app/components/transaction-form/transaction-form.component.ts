@@ -23,7 +23,7 @@ export class TransactionFormComponent {
     transactionValue: '',
   };
 
-  createdTransaction: OutputEmitterRef<void> = output<void>();
+  createdTransaction: OutputEmitterRef<Transaction> = output<Transaction>();
 
   onSubmit(): void {
     const transaction = new Transaction(
@@ -31,7 +31,7 @@ export class TransactionFormComponent {
       Number(this.formValues.transactionValue)
     );
 
-    this.createdTransaction.emit();
+    this.createdTransaction.emit(transaction);
 
     this.formValues.transactionType = '';
     this.formValues.transactionValue = '';

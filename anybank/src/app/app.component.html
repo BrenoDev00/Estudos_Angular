@@ -3,7 +3,9 @@
     <app-banner />
 
     <main>
-      <app-transaction-form (createdTransaction)="this.processTransaction()" />
+      <app-transaction-form
+        (createdTransaction)="this.processTransaction($event)"
+      />
     </main>
   </div>
 </div>

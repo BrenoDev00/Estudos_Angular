@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BannerComponent } from './components/banner/banner.component';
 import { TransactionFormComponent } from './components/transaction-form/transaction-form.component';
+import { Transaction } from './models/transaction';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { TransactionFormComponent } from './components/transaction-form/transact
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  processTransaction(): void {
-    alert('transação adicionada');
+  processTransaction(transaction: Transaction): void {
+    alert(transaction.transactionType);
   }
 }
