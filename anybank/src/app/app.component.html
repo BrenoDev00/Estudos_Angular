@@ -6,6 +6,8 @@
       <app-transaction-form
         (createdTransaction)="this.processTransaction($event)"
       />
+
+      {{ this.balance() }}
     </main>
   </div>
 </div>
