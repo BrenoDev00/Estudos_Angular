@@ -9,5 +9,7 @@ import { TransactionFormComponent } from './components/transaction-form/transact
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'anybank';
+  processTransaction() {
+    alert('transação adicionada');
+  }
 }

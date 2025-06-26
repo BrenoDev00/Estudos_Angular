@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output, OutputEmitterRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SelectFieldComponent } from '../select-field/select-field.component';
 import { ButtonComponent } from '../button/button.component';
@@ -22,10 +22,10 @@ export class TransactionFormComponent {
     transactionValue: '',
   };
 
+  createdTransaction: OutputEmitterRef<void> = output<void>();
+
   onSubmit() {
-    alert(
-      `tipo: ${this.formValues.transactionType}\nvalor: ${this.formValues.transactionValue}`
-    );
+    this.createdTransaction.emit();
 
     this.formValues.transactionType = '';
     this.formValues.transactionValue = '';
