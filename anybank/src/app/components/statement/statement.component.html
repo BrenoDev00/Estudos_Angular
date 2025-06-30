@@ -2,16 +2,14 @@
   <h2>Extrato</h2>
 
   <ul>
+    @for(transaction of this.transactions(); track transaction.id){
     <li>
-      <app-transaction-info />
+      <app-transaction-info [transaction]="transaction" />
     </li>
-
-    <li>
-      <app-transaction-info />
-    </li>
-
-    <li>
-      <app-transaction-info />
-    </li>
+    } @empty {
+    <p aria-hidden="true" id="empty-statement-message">
+      Nenhuma transação realizada até o momento.
+    </p>
+    }
   </ul>
 </aside>

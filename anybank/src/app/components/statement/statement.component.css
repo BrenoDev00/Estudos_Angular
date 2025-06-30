@@ -17,6 +17,11 @@ h2 {
   text-align: left;
 }
 
+#empty-statement-message {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
 ul {
   all: unset;
 

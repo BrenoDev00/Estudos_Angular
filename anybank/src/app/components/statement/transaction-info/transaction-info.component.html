@@ -1,5 +1,11 @@
 <article>
-  <span id="transaction-value">{{ "-R$ 50" }}</span>
+  <span id="transaction-value">{{
+    this.transaction().transactionType === "Saque"
+      ? ("-" + this.transaction().transactionValue | currency : "BRL")
+      : (this.transaction().transactionValue | currency : "BRL")
+  }}</span>
 
-  <time pubdate id="transaction-date">{{ "23/11/2024" }}</time>
+  <time pubdate id="transaction-date">{{
+    this.transaction().transactionDate | date : "dd/MM/yyyy"
+  }}</time>
 </article>
