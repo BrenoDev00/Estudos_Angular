@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, InputSignal } from '@angular/core';
 import { WelcomeInfoComponent } from './welcome-info/welcome-info.component';
 import { AccountInfoComponent } from './account-info/account-info.component';
 
@@ -8,4 +8,6 @@ import { AccountInfoComponent } from './account-info/account-info.component';
   templateUrl: './banner.component.html',
   styleUrl: './banner.component.css',
 })
-export class BannerComponent {}
+export class BannerComponent {
+  balance: InputSignal<number> = input.required<number>();
+}

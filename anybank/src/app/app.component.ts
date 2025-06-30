@@ -29,7 +29,26 @@ export class AppComponent {
     }, 0);
   });
 
+  handleNegativeBalance(transaction: Transaction): boolean {
+    const currentBalance = this.balance();
+
+    if (
+      transaction.transactionValue > currentBalance &&
+      transaction.transactionType === TransactionTypeEnum.Saque
+    ) {
+      alert('Você não possui saldo suficiente para realizar o saque.');
+      return false;
+    }
+
+    return true;
+  }
+
   processTransaction(transaction: Transaction): void {
-    this.transactionList.update((currentList) => [transaction, ...currentList]);
+    if (this.handleNegativeBalance(transaction) === true) {
+      this.transactionList.update((currentList) => [
+        transaction,
+        ...currentList,
+      ]);
+    }
   }
 }

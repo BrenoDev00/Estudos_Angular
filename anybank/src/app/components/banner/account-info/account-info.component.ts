@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, InputSignal } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 
 @Component({
@@ -7,4 +7,6 @@ import { CurrencyPipe } from '@angular/common';
   templateUrl: './account-info.component.html',
   styleUrl: './account-info.component.css',
 })
-export class AccountInfoComponent {}
+export class AccountInfoComponent {
+  balance: InputSignal<number> = input.required<number>();
+}
