@@ -1,6 +1,5 @@
 #app {
   width: 100vw;
-  height: 100dvh;
 
   display: flex;
   justify-content: center;
@@ -9,7 +8,17 @@
 
 #app-container {
   padding: 1.2rem;
+  margin-top: 10rem;
+
   flex-basis: 1024px;
+  display: flex;
+  align-items: flex-start;
+  gap: 2.4rem;
+  border: 1px solid black;
+}
+
+#main-content-container {
+  flex-basis: 70%;
 }
 
 main {
@@ -20,4 +29,9 @@ main {
   background-color: var(--bg-light-blue);
   border-radius: 0.8rem;
   padding: 3.2rem;
+}
+
+#statement {
+  align-self: stretch;
+  flex-basis: 30%;
 }

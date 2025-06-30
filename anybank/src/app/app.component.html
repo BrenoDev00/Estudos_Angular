@@ -1,11 +1,15 @@
 <div id="app">
   <div id="app-container">
-    <app-banner [balance]="this.balance()" />
+    <div id="main-content-container">
+      <app-banner [balance]="this.balance()" />
 
-    <main>
-      <app-transaction-form
-        (createdTransaction)="this.processTransaction($event)"
-      />
-    </main>
+      <main>
+        <app-transaction-form
+          (createdTransaction)="this.processTransaction($event)"
+        />
+      </main>
+    </div>
+
+    <app-statement id="statement" />
   </div>
 </div>

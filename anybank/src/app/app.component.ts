@@ -7,12 +7,13 @@ import {
 } from '@angular/core';
 import { BannerComponent } from './components/banner/banner.component';
 import { TransactionFormComponent } from './components/transaction-form/transaction-form.component';
+import { StatementComponent } from './components/statement/statement.component';
 import { Transaction } from './models/transaction';
 import { TransactionTypeEnum } from './types/models/transaction.type';
 
 @Component({
   selector: 'app-root',
-  imports: [BannerComponent, TransactionFormComponent],
+  imports: [BannerComponent, TransactionFormComponent, StatementComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

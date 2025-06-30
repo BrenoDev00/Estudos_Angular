@@ -1,0 +1,30 @@
+aside {
+  background-color: var(--bg-light-gray);
+  height: calc(100% - 4.4rem);
+
+  border-radius: 0.8rem;
+  padding: 2.2rem 3.2rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+ul {
+  all: unset;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+li {
+  all: unset;
+}

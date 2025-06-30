@@ -1,0 +1,14 @@
+article {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#transaction-value {
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+#transaction-date {
+  font-size: 1.3rem;
+}
