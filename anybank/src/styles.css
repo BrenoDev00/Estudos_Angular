@@ -26,3 +26,21 @@ body {
   font-family: "Montserrat", sans-serif;
   color: var(--neutral-black);
 }
+
+@media (max-width: 769px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 320px) {
+  html {
+    font-size: 45%;
+  }
+}

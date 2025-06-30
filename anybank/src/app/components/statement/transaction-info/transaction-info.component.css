@@ -1,5 +1,6 @@
 article {
   display: flex;
+  gap: 0.8rem;
   justify-content: space-between;
   align-items: center;
 }
