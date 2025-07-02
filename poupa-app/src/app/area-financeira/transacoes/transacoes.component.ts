@@ -1,11 +1,15 @@
 import { Component, input } from '@angular/core';
 import { TransacaoComponent } from './transacao/transacao.component';
 import { Transacao } from '../compartilhados/transacao.model';
-import { BotaoComponent } from '../../compartilhados/botao/botao.component';
+import { BotaoAdicionarTransacaoComponent } from './botao-adicionar-transacao/botao-adicionar-transacao.component';
 import { CardComponent } from '../compartilhados/card/card.component';
 @Component({
   selector: 'app-transacoes',
-  imports: [TransacaoComponent, BotaoComponent, CardComponent],
+  imports: [
+    TransacaoComponent,
+    BotaoAdicionarTransacaoComponent,
+    CardComponent,
+  ],
   templateUrl: './transacoes.component.html',
   styleUrl: './transacoes.component.css',
 })
