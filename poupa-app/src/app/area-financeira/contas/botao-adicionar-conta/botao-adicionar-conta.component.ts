@@ -32,7 +32,8 @@ export class BotaoAdicionarContaComponent {
     this.novaConta.emit(conta);
     this.modalAberto.set(false);
 
-    this.novaContaForm.banco = '';
-    this.novaContaForm.saldo = '';
+    for (const campo in this.novaContaForm) {
+      this.novaContaForm[campo as keyof typeof this.novaContaForm] = '';
+    }
   }
 }

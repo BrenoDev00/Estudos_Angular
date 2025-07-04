@@ -82,8 +82,11 @@
       >
         <option value="" selected disabled>Selecione a conta</option>
 
-        <option value="Anybank">Anybank</option>
-        <option value="Bytebank">Bytebank</option>
+        @for(conta of tipoContas(); track conta.id){
+        <option [value]="conta.banco">{{ conta.banco }}</option>
+        }@empty {
+        <option value="" disabled>Nenhuma conta cadastrada.</option>
+        }
       </select>
     </label>
 

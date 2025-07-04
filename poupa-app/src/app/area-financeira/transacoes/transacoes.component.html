@@ -13,6 +13,7 @@
     </ul>
 
     <app-botao-adicionar-transacao
+      [tipoContas]="contas()"
       (transacaoCriada)="transacaoCriada.emit($event)"
       class="botao-adicionar-transacao"
     />
