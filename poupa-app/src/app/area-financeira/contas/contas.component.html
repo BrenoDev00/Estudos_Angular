@@ -3,7 +3,7 @@
 
   <div class="contas-e-botao">
     <ul>
-      @for (conta of contas(); track conta.nome) {
+      @for (conta of contas(); track conta.banco) {
       <li class="item-entre-divisorias">
         <app-conta [conta]="conta" />
       </li>
@@ -12,6 +12,9 @@
       }
     </ul>
 
-    <app-botao-adicionar-conta class="botao-adicionar-conta"></app-botao-adicionar-conta>
+    <app-botao-adicionar-conta
+      (novaConta)="novaConta.emit($event)"
+      class="botao-adicionar-conta"
+    ></app-botao-adicionar-conta>
   </div>
 </app-card>

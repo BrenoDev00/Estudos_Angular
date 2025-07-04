@@ -5,5 +5,9 @@
     (transacaoCriada)="processaTransacao($event)"
     [transacoes]="transacoes()"
   />
-  <app-contas class="contas" [contas]="contas" />
+  <app-contas
+    class="contas"
+    (novaConta)="processaConta($event)"
+    [contas]="contas()"
+  />
 </div>

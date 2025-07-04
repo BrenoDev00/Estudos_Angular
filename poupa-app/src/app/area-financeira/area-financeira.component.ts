@@ -13,6 +13,9 @@ import { Transacao, TipoTransacao } from './compartilhados/transacao.model';
 })
 export class AreaFinanceiraComponent {
   transacoes = signal<Transacao[]>([]);
+
+  contas = signal<Conta[]>([]);
+
   saldo = 0;
 
   // saldo = computed(() => {
@@ -25,22 +28,11 @@ export class AreaFinanceiraComponent {
   //   }, 0);
   // });
 
-  contas: Conta[] = [
-    {
-      nome: 'Anybank',
-      saldo: 1000,
-    },
-    {
-      nome: 'Bytebank',
-      saldo: 0,
-    },
-    {
-      nome: 'Switch Bank',
-      saldo: 0,
-    },
-  ];
-
   processaTransacao(novaTransacao: Transacao): void {
     this.transacoes.update((listaAtual) => [novaTransacao, ...listaAtual]);
+  }
+
+  processaConta(novaConta: Conta): void {
+    this.contas.update((listaAtual) => [novaConta, ...listaAtual]);
   }
 }
