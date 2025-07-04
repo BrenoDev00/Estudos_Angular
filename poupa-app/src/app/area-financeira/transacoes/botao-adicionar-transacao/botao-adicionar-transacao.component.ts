@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, output } from '@angular/core';
 import { BotaoComponent } from '../../../compartilhados/botao/botao.component';
 import { ModalComponent } from '../../../compartilhados/modal/modal.component';
 import { FormsModule } from '@angular/forms';
@@ -20,6 +20,8 @@ export class BotaoAdicionarTransacaoComponent {
     conta: '',
   };
 
+  transacaoCriada = output<Transacao>();
+
   abrirModal(): void {
     this.modalAberto.set(true);
   }
@@ -32,5 +34,8 @@ export class BotaoAdicionarTransacaoComponent {
       this.novaTransacaoForm.data,
       this.novaTransacaoForm.conta
     );
+
+    this.transacaoCriada.emit(transacao);
+    this.modalAberto.set(false);
   }
 }
