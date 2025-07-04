@@ -12,4 +12,6 @@ export class ButtonComponent {
   >();
 
   label: InputSignal<string> = input.required<string>();
+
+  onClick = input<void>();
 }

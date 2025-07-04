@@ -1,1 +1,3 @@
-<button [type]="this.type()">{{ this.label() }}</button>
+<button [type]="this.type()" (click)="this.onClick()">
+  {{ this.label() }}
+</button>

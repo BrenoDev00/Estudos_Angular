@@ -1,0 +1,13 @@
+<article [ngClass]="this.isOpen() ? 'open' : 'close'">
+  <dialog [open]="this.isOpen()">
+    <div id="dialog-container">
+      <ng-content select="[modalContent]"></ng-content>
+
+      <app-button
+        [type]="'button'"
+        [label]="'fechar'"
+        [onClick]="this.closeModal()"
+      />
+    </div>
+  </dialog>
+</article>

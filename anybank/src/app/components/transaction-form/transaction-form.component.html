@@ -1,4 +1,4 @@
-<form (ngSubmit)="this.onSubmit()" ngNativeValidate>
+<form (ngSubmit)="onSubmit()" ngNativeValidate>
   <h1>Nova transação</h1>
 
   <div id="form-fields-container">
@@ -25,7 +25,13 @@
     />
   </div>
 
+  {{ this.isModalOpen() }}
+
   <div id="button-container">
     <app-button [type]="'submit'" [label]="'Confirmar transação'" />
   </div>
 </form>
+
+<app-modal [isOpen]="this.isModalOpen()" (onClose)="closeModal()">
+  <p id="success-message" modalContent>Operação realizada com sucesso!</p>
+</app-modal>
