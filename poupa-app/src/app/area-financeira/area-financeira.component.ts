@@ -1,9 +1,9 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal, computed, Signal } from '@angular/core';
 import { SaldoComponent } from './saldo/saldo.component';
 import { TransacoesComponent } from './transacoes/transacoes.component';
 import { ContasComponent } from './contas/contas.component';
 import { Conta } from './compartilhados/conta.model';
-import { Transacao } from './compartilhados/transacao.model';
+import { Transacao, TipoTransacao } from './compartilhados/transacao.model';
 
 @Component({
   selector: 'app-area-financeira',
@@ -12,9 +12,18 @@ import { Transacao } from './compartilhados/transacao.model';
   styleUrl: './area-financeira.component.css',
 })
 export class AreaFinanceiraComponent {
+  transacoes = signal<Transacao[]>([]);
   saldo = 0;
 
-  transacoes = signal<Transacao[]>([]);
+  // saldo = computed(() => {
+  //   this.transacoes().reduce((acc, transacao): number => {
+  //     if (transacao.tipo === TipoTransacao.DEPOSITO) {
+  //       return Number(acc + transacao.valor);
+  //     }
+
+  //     return Number(acc - transacao.valor);
+  //   }, 0);
+  // });
 
   contas: Conta[] = [
     {
