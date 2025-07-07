@@ -14,25 +14,52 @@ import { Transacao, TipoTransacao } from './compartilhados/transacao.model';
 export class AreaFinanceiraComponent {
   transacoes = signal<Transacao[]>([]);
 
-  contas = signal<Conta[]>([]);
+  contasComSaldoInicial = signal<Conta[]>([]);
 
-  saldo = 0;
+  contas = computed(() => {
+    return this.contasComSaldoInicial().map((conta) => {
+      const saldoAtualizado = this.calculaSaldoAtualizado(conta);
 
-  // saldo = computed(() => {
-  //   this.transacoes().reduce((acc, transacao): number => {
-  //     if (transacao.tipo === TipoTransacao.DEPOSITO) {
-  //       return Number(acc + transacao.valor);
-  //     }
+      return { ...conta, saldo: saldoAtualizado };
+    });
+  });
 
-  //     return Number(acc - transacao.valor);
-  //   }, 0);
-  // });
+  saldo = computed(() => {
+    return this.contas().reduce((acc, conta) => {
+      return conta.saldo + acc;
+    }, 0);
+  });
+
+  calculaSaldoAtualizado(contaInicial: Conta): number {
+    const transacoesDaConta = this.transacoes().filter((transacao) => {
+      return transacao.conta === contaInicial.banco;
+    });
+
+    const novoSaldo = transacoesDaConta.reduce((acc, transacao) => {
+      switch (transacao.tipo) {
+        case TipoTransacao.DEPOSITO:
+          return acc + transacao.valor;
+
+        case TipoTransacao.SAQUE:
+          return acc - transacao.valor;
+
+        default:
+          transacao.tipo satisfies never;
+          throw new Error('Tipo de transação não identificado.');
+      }
+    }, contaInicial.saldo);
+
+    return novoSaldo;
+  }
 
   processaTransacao(novaTransacao: Transacao): void {
     this.transacoes.update((listaAtual) => [novaTransacao, ...listaAtual]);
   }
 
   processaConta(novaConta: Conta): void {
-    this.contas.update((listaAtual) => [novaConta, ...listaAtual]);
+    this.contasComSaldoInicial.update((listaAtual) => [
+      novaConta,
+      ...listaAtual,
+    ]);
   }
 }
