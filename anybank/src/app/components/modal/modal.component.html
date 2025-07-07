@@ -1,5 +1,5 @@
 <article [ngClass]="this.isOpen() ? 'open' : 'close'">
-  <dialog #modal (close)="this.closeModal()">
+  <dialog [open]="this.isOpen()" (close)="this.closeModal()">
     <div id="dialog-container">
       <ng-content select="[modalContent]"></ng-content>
 

@@ -30,6 +30,9 @@
   </div>
 </form>
 
-<app-modal [(isOpen)]="isModalOpen">
+<app-modal
+  [isOpen]="this.isModalOpen()"
+  (onClose)="this.isModalOpen.set(false)"
+>
   <p id="success-message" modalContent>Operação realizada com sucesso!</p>
 </app-modal>
