@@ -6,6 +6,7 @@
       <main>
         <app-transaction-form
           (createdTransaction)="this.processTransaction($event)"
+          [currentBalance]="this.balance()"
         />
       </main>
     </div>

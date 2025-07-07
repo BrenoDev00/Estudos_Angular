@@ -15,7 +15,8 @@ h1 {
   margin-top: 3.2rem;
 }
 
-#success-message {
+#success-message,
+#error-message {
   font-size: 1.6rem;
   font-weight: 500;
 }

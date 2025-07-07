@@ -31,8 +31,15 @@
 </form>
 
 <app-modal
-  [isOpen]="this.isModalOpen()"
-  (onClose)="this.isModalOpen.set(false)"
+  [isOpen]="this.isSuccessModalOpen()"
+  (onClose)="this.isSuccessModalOpen.set(false)"
 >
   <p id="success-message" modalContent>Operação realizada com sucesso!</p>
+</app-modal>
+
+<app-modal
+  [isOpen]="this.isErrorModalOpen()"
+  (onClose)="this.isErrorModalOpen.set(false)"
+>
+  <p id="error-message" modalContent>Saldo insuficiente.</p>
 </app-modal>

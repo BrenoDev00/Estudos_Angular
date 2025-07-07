@@ -37,7 +37,6 @@ export class AppComponent {
       transaction.transactionValue > currentBalance &&
       transaction.transactionType === TransactionTypeEnum.Saque
     ) {
-      alert('Você não possui saldo suficiente para realizar o saque.');
       return false;
     }
 
@@ -45,7 +44,7 @@ export class AppComponent {
   }
 
   processTransaction(transaction: Transaction): void {
-    if (this.handleNegativeBalance(transaction) === true) {
+    if (this.handleNegativeBalance(transaction)) {
       this.transactionList.update((currentList) => [
         transaction,
         ...currentList,
