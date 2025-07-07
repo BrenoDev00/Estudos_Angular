@@ -5,7 +5,7 @@ article {
   transform: translate(-50%, 50%);
 
   width: 100vw;
-  height: 100dvw;
+  height: 100dvh;
 
   display: none;
   justify-content: center;
