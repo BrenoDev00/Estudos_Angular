@@ -1,7 +1,6 @@
 import {
   Component,
   output,
-  Signal,
   signal,
   WritableSignal,
   OutputEmitterRef,
@@ -36,10 +35,6 @@ export class TransactionFormComponent {
 
   isModalOpen: WritableSignal<boolean> = signal<boolean>(false);
 
-  closeModal(): void {
-    this.isModalOpen.set(false);
-  }
-
   onSubmit(): void {
     const transaction = new Transaction(
       this.formValues.transactionType as TransactionTypeEnum,
@@ -52,6 +47,5 @@ export class TransactionFormComponent {
     this.formValues.transactionValue = '';
 
     this.isModalOpen.set(true);
-    alert(this.isModalOpen());
   }
 }

@@ -1,9 +1,10 @@
 import {
   Component,
-  output,
-  input,
-  OutputEmitterRef,
-  InputSignal,
+  viewChild,
+  ElementRef,
+  model,
+  ModelSignal,
+  afterRender,
 } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { ButtonComponent } from '../button/button.component';
@@ -15,11 +16,23 @@ import { ButtonComponent } from '../button/button.component';
   styleUrl: './modal.component.css',
 })
 export class ModalComponent {
-  isOpen: InputSignal<boolean> = input.required<boolean>();
+  modal = viewChild.required<ElementRef<HTMLDialogElement>>('modal');
 
-  onClose: OutputEmitterRef<void> = output<void>();
+  isOpen: ModelSignal<boolean> = model.required<boolean>();
+
+  constructor() {
+    afterRender(() => {
+      if (this.isOpen()) {
+        this.modal().nativeElement.showModal();
+      }
+
+      if (!this.isOpen()) {
+        this.modal().nativeElement.close();
+      }
+    });
+  }
 
   closeModal(): void {
-    this.onClose.emit();
+    this.isOpen.set(false);
   }
 }

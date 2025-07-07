@@ -1,12 +1,12 @@
 <article [ngClass]="this.isOpen() ? 'open' : 'close'">
-  <dialog [open]="this.isOpen()">
+  <dialog #modal (close)="this.closeModal()">
     <div id="dialog-container">
       <ng-content select="[modalContent]"></ng-content>
 
       <app-button
         [type]="'button'"
-        [label]="'fechar'"
-        [onClick]="this.closeModal()"
+        [label]="'Fechar'"
+        (onClick)="closeModal()"
       />
     </div>
   </dialog>

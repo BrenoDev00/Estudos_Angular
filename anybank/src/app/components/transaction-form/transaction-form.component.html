@@ -25,13 +25,11 @@
     />
   </div>
 
-  {{ this.isModalOpen() }}
-
   <div id="button-container">
     <app-button [type]="'submit'" [label]="'Confirmar transação'" />
   </div>
 </form>
 
-<app-modal [isOpen]="this.isModalOpen()" (onClose)="closeModal()">
+<app-modal [(isOpen)]="isModalOpen">
   <p id="success-message" modalContent>Operação realizada com sucesso!</p>
 </app-modal>

@@ -1,4 +1,10 @@
-import { Component, input, InputSignal } from '@angular/core';
+import {
+  Component,
+  input,
+  InputSignal,
+  output,
+  OutputEmitterRef,
+} from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -13,5 +19,5 @@ export class ButtonComponent {
 
   label: InputSignal<string> = input.required<string>();
 
-  onClick = input<void>();
+  onClick: OutputEmitterRef<void> = output<void>();
 }
