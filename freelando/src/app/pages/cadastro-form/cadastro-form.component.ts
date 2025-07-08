@@ -58,7 +58,7 @@ export class CadastroFormComponent implements OnInit {
     });
   }
 
-  onAreaChange(area: string) {
+  onAreaChange(area: string): void {
     this.cadastroForm.get('areasAtuacao')?.setValue(area);
   }
 }
