@@ -2,7 +2,7 @@
   <div class="cadastro-form__container">
     <div class="cadastro-form__card">
       <h2 class="cadastro-form__title">Crie seu cadastro</h2>
-      <form [formGroup]="cadastroForm">
+      <form [formGroup]="cadastroForm" (ngSubmit)="onProximo()">
         <div class="cadastro-form__section">
           <h3 class="cadastro-form__section-title">Qual a área de atuação?</h3>
 
@@ -16,6 +16,29 @@
               [checked]="cadastroForm.get('areaAtuacao')?.value === area.value"
               (selectionChange)="onAreaChange($event)"
             />
+
+            } @if(cadastroForm.get("areaAtuacao")?.touched &&
+            cadastroForm.get("areaAtuacao")?.invalid){
+            <span class="cadastro-form__error">
+              Por favor, selecione uma área de atuação
+            </span>
+            }
+          </div>
+
+          <div class="cadastro-form__section">
+            <h3 class="cadastro-form__section-title">Nível de experiência</h3>
+
+            <app-experience-level
+              [levels]="niveisExperiencia"
+              [selectedLevel]="cadastroForm.get('nivelExperiencia')?.value"
+              (levelChange)="onNivelChange($event)"
+            />
+
+            @if(cadastroForm.get("nivelExperiencia")?.touched &&
+            cadastroForm.get("nivelExperiencia")?.invalid){
+            <span class="cadastro-form__error"
+              >Por favor, selecione um nível de experiência</span
+            >
             }
           </div>
         </div>

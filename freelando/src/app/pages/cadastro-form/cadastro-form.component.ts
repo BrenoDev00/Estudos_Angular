@@ -7,10 +7,11 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RadioOptionComponent } from '../../shared/components/radio-option/radio-option.component';
+import { ExperienceLevelComponent } from '../../shared/components/experience-level/experience-level.component';
 
 const MODULES = [CommonModule, ReactiveFormsModule];
 
-const COMPONENTS = [RadioOptionComponent];
+const COMPONENTS = [RadioOptionComponent, ExperienceLevelComponent];
 
 @Component({
   selector: 'app-cadastro-form',
@@ -60,5 +61,15 @@ export class CadastroFormComponent implements OnInit {
 
   onAreaChange(area: string): void {
     this.cadastroForm.get('areasAtuacao')?.setValue(area);
+  }
+
+  onNivelChange(nivel: string): void {
+    this.cadastroForm.get('niveisExperiencia')?.setValue(nivel);
+  }
+
+  onProximo(): void {
+    if (this.cadastroForm.valid) {
+      console.log('form válido');
+    }
   }
 }
