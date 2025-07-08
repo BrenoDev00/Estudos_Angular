@@ -1,0 +1,11 @@
+<app-text-field [label]="'Nome'" [id]="'nameField'" [control]="nameField" />
+
+<div>
+  <output>{{ nameField.value }}</output>
+</div>
+
+<app-text-field [label]="'Idade'" [id]="'ageField'" [control]="ageField" />
+
+<div>
+  <output>{{ ageField.value == 0 ? "" : ageField.value }}</output>
+</div>
