@@ -41,6 +41,24 @@
             >
             }
           </div>
+
+          <div class="cadastro-form__actions">
+            <app-button
+              [text]="'anterior'"
+              [type]="'outline'"
+              [iconPosition]="'left'"
+              (clicked)="onAnterior()"
+            />
+
+            <app-button
+              [text]="'Próximo'"
+              [type]="'primary'"
+              [icon]="'fas fa-arrow-right'"
+              [iconPosition]="'right'"
+              [disabled]="cadastroForm.invalid"
+              (clicked)="onProximo()"
+            />
+          </div>
         </div>
       </form>
     </div>
