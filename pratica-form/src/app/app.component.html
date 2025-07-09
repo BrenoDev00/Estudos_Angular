@@ -14,13 +14,21 @@
 
 <br />
 
-<app-button [type]="'submit'" (onClick)="changeNameField()">
+<app-button
+  [type]="'button'"
+  (onClick)="changeNameField()"
+  [variant]="'primary'"
+>
   Alterar nome
 </app-button>
 
 <br />
 <br />
 
-<app-button [type]="'submit'" (onClick)="clearNameField()">
+<app-button
+  [type]="'button'"
+  (onClick)="clearNameField()"
+  [variant]="'secondary'"
+>
   Limpar campo
 </app-button>

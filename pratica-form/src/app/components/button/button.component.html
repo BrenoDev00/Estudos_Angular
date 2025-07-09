@@ -1,3 +1,9 @@
-<button [type]="type()" (click)="onClick.emit()">
+<button
+  [type]="type()"
+  (click)="onClick.emit()"
+  [ngClass]="
+    variant() === 'primary' ? primaryVariantStyle : secondaryVariantStyle
+  "
+>
   <ng-content></ng-content>
 </button>

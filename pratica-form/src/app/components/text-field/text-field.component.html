@@ -1,4 +1,9 @@
 <label [for]="id()">{{ label() }}</label>
 <div>
-  <input type="text" [id]="id()" [formControl]="control()" />
+  <input
+    class="border border-solid border-gray-700 rounded-sm outline-none py-[1px] px-[2px]"
+    type="text"
+    [id]="id()"
+    [formControl]="control()"
+  />
 </div>

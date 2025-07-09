@@ -6,7 +6,6 @@ import { ButtonComponent } from './components/button/button.component';
   selector: 'app-root',
   imports: [ReactiveFormsModule, ButtonComponent, TextFieldComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
 })
 export class AppComponent {
   nameField = new FormControl('');
