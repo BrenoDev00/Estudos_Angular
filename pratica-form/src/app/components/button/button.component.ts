@@ -12,7 +12,7 @@ export class ButtonComponent {
   variant = input.required<'primary' | 'secondary'>();
 
   baseStyle: string =
-    'p-[4px] px-[8px] text-white font-semibold cursor-pointer';
+    'p-[4px] px-[14px] text-white font-semibold cursor-pointer';
 
   primaryVariantStyle: string = this.baseStyle + ' bg-violet-800 rounded-md ';
 

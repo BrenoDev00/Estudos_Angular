@@ -1,0 +1,92 @@
+<div>
+  <form
+    class="border-2 border-white p-6 flex flex-col gap-4 items-center"
+    [formGroup]="userForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <p class="text-white">Form utilizando o FormGroup e formControl</p>
+
+    <app-text-field
+      [label]="'Nome'"
+      [id]="'name'"
+      [control]="$any(userForm.get('name'))"
+    />
+
+    <app-text-field
+      [label]="'Idade'"
+      [id]="'age'"
+      [control]="$any(userForm.get('age'))"
+    />
+
+    <div formGroupName="address" class="flex flex-col gap-2">
+      <p class="text-white">address info</p>
+
+      <app-text-field
+        [label]="'Rua'"
+        [id]="'street'"
+        [control]="$any(userForm.get('address.street'))"
+      />
+
+      <app-text-field
+        [label]="'Cidade'"
+        [id]="'city'"
+        [control]="$any(userForm.get('address.city'))"
+      />
+
+      <app-text-field
+        [label]="'estado'"
+        [id]="'state'"
+        [control]="$any(userForm.get('address.state'))"
+      />
+    </div>
+
+    <div class="flex flex-col gap-6 items-center">
+      <div class="flex items-center gap-2">
+        <app-button
+          [type]="'button'"
+          (onClick)="changeFields()"
+          [variant]="'primary'"
+        >
+          Alterar campos
+        </app-button>
+        <app-button
+          [type]="'button'"
+          (onClick)="clearFields()"
+          [variant]="'primary'"
+        >
+          Limpar campos
+        </app-button>
+      </div>
+
+      <app-button [variant]="'secondary'" [type]="'submit'">Enviar</app-button>
+    </div>
+  </form>
+
+  <br />
+
+  <p class="text-white text-center">saída</p>
+
+  <br />
+
+  <div>
+    <div class="flex flex-col gap-2">
+      <output class="text-white">{{ userForm.get("name")?.value }}</output>
+
+      <output class="text-white">{{
+        userForm.value.age == 0 ? "" : userForm.value.age
+      }}</output>
+
+      <output class="text-white">{{
+        userForm.get("address.street")?.value
+      }}</output>
+
+      <output class="text-white">{{
+        userForm.get("address.city")?.value
+      }}</output>
+
+      <output class="text-white">{{
+        userForm.get("address.state")?.value
+      }}</output>
+    </div>
+  </div>
+</div>
