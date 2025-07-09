@@ -1,0 +1,50 @@
+<form
+  (ngSubmit)="onSubmit()"
+  [formGroup]="userForm"
+  class="border-2 border-white p-6 flex flex-col gap-4 items-center"
+>
+  <p class="text-white">Form Utilizando o FormBuilder service</p>
+
+  <app-text-field
+    [id]="'name'"
+    [label]="'Nome'"
+    [control]="$any(userForm.get('name'))"
+  />
+
+  <app-text-field
+    [id]="'age'"
+    [label]="'Idade'"
+    [control]="$any(userForm.get('age'))"
+  />
+
+  <p class="text-white mt-4">address info</p>
+
+  <app-text-field
+    [id]="'street'"
+    [label]="'Rua'"
+    [control]="$any(userForm.get('address.street'))"
+  />
+
+  <app-text-field
+    [id]="'city'"
+    [label]="'Cidade'"
+    [control]="$any(userForm.get('address.city'))"
+  />
+
+  <app-text-field
+    [id]="'state'"
+    [label]="'Estado'"
+    [control]="$any(userForm.get('address.state'))"
+  />
+
+  <div class="flex gap-4">
+    <app-button [variant]="'secondary'" [type]="'submit'">Enviar</app-button>
+
+    <app-button
+      [variant]="'primary'"
+      [type]="'button'"
+      (onClick)="resetFields()"
+      >Limpar</app-button
+    >
+  </div>
+</form>
