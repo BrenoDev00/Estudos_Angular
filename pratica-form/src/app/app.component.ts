@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ReactiveFormsModule, FormControl } from '@angular/forms';
+import { ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
 import { TextFieldComponent } from './components/text-field/text-field.component';
 import { ButtonComponent } from './components/button/button.component';
 @Component({
@@ -8,15 +8,21 @@ import { ButtonComponent } from './components/button/button.component';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  nameField = new FormControl('');
-
-  ageField = new FormControl(0);
+  userForm: FormGroup = new FormGroup({
+    nameField: new FormControl(''),
+    ageField: new FormControl(0),
+  });
 
   changeNameField(): void {
-    this.nameField.setValue('Luana');
+    this.userForm.get('nameField')?.setValue('Pedro');
   }
 
-  clearNameField(): void {
-    this.nameField.setValue('');
+  clearFields(): void {
+    this.userForm.get('nameField')?.setValue('');
+    this.userForm.get('ageField')?.setValue(0);
+  }
+
+  onSubmit() {
+    alert(this.userForm.value.nameField + ' ' + this.userForm.value.ageField);
   }
 }

@@ -1,34 +1,63 @@
-<app-text-field [label]="'Nome'" [id]="'nameField'" [control]="nameField" />
+<main class="h-screen w-screen flex justify-center items-center bg-slate-800">
+  <div>
+    <form
+      class="border-2 border-white p-6 flex flex-col gap-4"
+      [formGroup]="userForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <app-text-field
+        [label]="'Nome'"
+        [id]="'nameField'"
+        [control]="$any(userForm.get('nameField'))"
+      />
 
-<div>
-  <output>{{ nameField.value }}</output>
-</div>
+      <app-text-field
+        [label]="'Idade'"
+        [id]="'ageField'"
+        [control]="$any(userForm.get('ageField'))"
+      />
 
-<br />
+      <div class="flex flex-col gap-2 items-center">
+        <app-button
+          [type]="'button'"
+          (onClick)="changeNameField()"
+          [variant]="'primary'"
+        >
+          Alterar nome
+        </app-button>
 
-<app-text-field [label]="'Idade'" [id]="'ageField'" [control]="ageField" />
+        <app-button
+          [type]="'button'"
+          (onClick)="clearFields()"
+          [variant]="'secondary'"
+        >
+          Limpar campos
+        </app-button>
 
-<div>
-  <output>{{ ageField.value == 0 ? "" : ageField.value }}</output>
-</div>
+        <app-button [variant]="'primary'" [type]="'submit'">Enviar</app-button>
+      </div>
+    </form>
 
-<br />
+    <br />
 
-<app-button
-  [type]="'button'"
-  (onClick)="changeNameField()"
-  [variant]="'primary'"
->
-  Alterar nome
-</app-button>
+    <p class="text-white text-center">saída</p>
 
-<br />
-<br />
+    <br />
 
-<app-button
-  [type]="'button'"
-  (onClick)="clearNameField()"
-  [variant]="'secondary'"
->
-  Limpar campo
-</app-button>
+    <div>
+      <div>
+        <output class="text-white">{{
+          userForm.get("nameField")?.value
+        }}</output>
+      </div>
+
+      <div>
+        <output class="text-white">{{
+          userForm.get("ageField")?.value == 0
+            ? ""
+            : userForm.get("ageField")?.value
+        }}</output>
+      </div>
+    </div>
+  </div>
+</main>
