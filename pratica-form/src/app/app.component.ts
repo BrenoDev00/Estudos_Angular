@@ -2,15 +2,16 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
 import { TextFieldComponent } from './components/text-field/text-field.component';
 import { ButtonComponent } from './components/button/button.component';
+import { UserFormInterface } from './types/user-form.type';
 @Component({
   selector: 'app-root',
   imports: [ReactiveFormsModule, ButtonComponent, TextFieldComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  userForm: FormGroup = new FormGroup({
+  userForm = new FormGroup<UserFormInterface>({
     name: new FormControl(''),
-    age: new FormControl(0),
+    age: new FormControl(0, { nonNullable: true }),
 
     address: new FormGroup({
       street: new FormControl(''),
@@ -19,26 +20,24 @@ export class AppComponent {
     }),
   });
 
-  changeNameField(): void {
-    this.userForm.get('name')?.setValue('Pedro');
+  changeFields(): void {
+    this.userForm.patchValue({
+      name: 'Nancy',
+      age: 34,
+      address: {
+        street: 'Rua das flores',
+        city: 'Zona Norte',
+        state: 'São Paulo',
+      },
+    });
   }
 
   clearFields(): void {
-    this.userForm.get('name')?.setValue('');
-    this.userForm.get('age')?.setValue(0);
-    this.userForm.get('address.street')?.setValue('');
-    this.userForm.get('address.city')?.setValue('');
-    this.userForm.get('address.state')?.setValue('');
+    this.userForm.reset();
   }
 
-  onSubmit() {
-    alert(
-      this.userForm.value.name +
-        ' ' +
-        this.userForm.value.age +
-        ' ' +
-        this.userForm.value.address.street
-    );
+  onSubmit(): void {
+    alert(JSON.stringify(this.userForm.value));
 
     console.log(this.userForm.value);
   }
