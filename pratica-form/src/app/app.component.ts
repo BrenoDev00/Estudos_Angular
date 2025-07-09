@@ -9,20 +9,37 @@ import { ButtonComponent } from './components/button/button.component';
 })
 export class AppComponent {
   userForm: FormGroup = new FormGroup({
-    nameField: new FormControl(''),
-    ageField: new FormControl(0),
+    name: new FormControl(''),
+    age: new FormControl(0),
+
+    address: new FormGroup({
+      street: new FormControl(''),
+      city: new FormControl(''),
+      state: new FormControl(''),
+    }),
   });
 
   changeNameField(): void {
-    this.userForm.get('nameField')?.setValue('Pedro');
+    this.userForm.get('name')?.setValue('Pedro');
   }
 
   clearFields(): void {
-    this.userForm.get('nameField')?.setValue('');
-    this.userForm.get('ageField')?.setValue(0);
+    this.userForm.get('name')?.setValue('');
+    this.userForm.get('age')?.setValue(0);
+    this.userForm.get('address.street')?.setValue('');
+    this.userForm.get('address.city')?.setValue('');
+    this.userForm.get('address.state')?.setValue('');
   }
 
   onSubmit() {
-    alert(this.userForm.value.nameField + ' ' + this.userForm.value.ageField);
+    alert(
+      this.userForm.value.name +
+        ' ' +
+        this.userForm.value.age +
+        ' ' +
+        this.userForm.value.address.street
+    );
+
+    console.log(this.userForm.value);
   }
 }
