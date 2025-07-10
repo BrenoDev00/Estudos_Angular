@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 import { TextFieldComponent } from '../text-field/text-field.component';
+import { NgClass } from '@angular/common';
+import { ErrorMessageComponent } from '../error-message/error-message.component';
 import {
   FormGroup,
   ReactiveFormsModule,
@@ -10,7 +12,13 @@ import {
 import { UserFormInterface } from '../../types/user-form.type';
 @Component({
   selector: 'app-user-form',
-  imports: [ButtonComponent, TextFieldComponent, ReactiveFormsModule],
+  imports: [
+    ButtonComponent,
+    ErrorMessageComponent,
+    TextFieldComponent,
+    ReactiveFormsModule,
+    NgClass,
+  ],
   templateUrl: './user-form.component.html',
 })
 export class UserFormComponent {

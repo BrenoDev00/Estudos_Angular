@@ -1,7 +1,10 @@
 <label class="text-white" [for]="id()">{{ label() }}</label>
 <div>
   <input
-    class="border border-solid text-white border-gray-300 rounded-sm outline-none py-[1px] px-[2px]"
+    [ngClass]="
+      'border border-solid text-white border-gray-300 rounded-sm outline-none py-[1px] px-[2px]'
+    "
+    [class]="class()!"
     type="text"
     [id]="id()"
     [formControl]="control()"
