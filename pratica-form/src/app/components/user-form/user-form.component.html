@@ -6,6 +6,10 @@
   >
     <p class="text-white">Form utilizando o FormGroup e formControl</p>
 
+    <p [class]="userForm.status === 'INVALID' ? 'text-red-300' : 'text-white'">
+      {{ userForm.status === "INVALID" ? "Inválido" : "Válido" }}
+    </p>
+
     <app-text-field
       [label]="'Nome'"
       [id]="'name'"
@@ -58,7 +62,13 @@
         </app-button>
       </div>
 
-      <app-button [variant]="'secondary'" [type]="'submit'">Enviar</app-button>
+      <app-button
+        [class]="'bg-green-700'"
+        [disabled]="userForm.invalid"
+        [variant]="'secondary'"
+        [type]="'submit'"
+        >Enviar</app-button
+      >
     </div>
   </form>
 

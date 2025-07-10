@@ -2,6 +2,7 @@
   [type]="type()"
   [disabled]="disabled()"
   (click)="onClick.emit()"
+  [class]="class()!"
   [ngClass]="
     variant() === 'primary' ? primaryVariantStyle : secondaryVariantStyle
   "

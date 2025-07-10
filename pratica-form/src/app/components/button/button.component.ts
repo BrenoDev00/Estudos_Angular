@@ -10,6 +10,8 @@ export class ButtonComponent {
   type = input.required<'button' | 'submit'>();
 
   variant = input.required<'primary' | 'secondary'>();
+  
+  class = input<string>();
 
   disabled = input<boolean>();
 

@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 import { TextFieldComponent } from '../text-field/text-field.component';
-import { FormGroup, ReactiveFormsModule, FormControl } from '@angular/forms';
+import {
+  FormGroup,
+  ReactiveFormsModule,
+  FormControl,
+  Validators,
+} from '@angular/forms';
 import { UserFormInterface } from '../../types/user-form.type';
 @Component({
   selector: 'app-user-form',
@@ -10,13 +15,34 @@ import { UserFormInterface } from '../../types/user-form.type';
 })
 export class UserFormComponent {
   userForm = new FormGroup<UserFormInterface>({
-    name: new FormControl(''),
-    age: new FormControl(0, { nonNullable: true }),
+    name: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(64),
+      Validators.pattern(/^(?!\s*$).{3,64}$/),
+    ]),
+    age: new FormControl(0, [
+      Validators.required,
+      Validators.min(18),
+      Validators.max(64),
+    ]),
 
     address: new FormGroup({
-      street: new FormControl(''),
-      city: new FormControl(''),
-      state: new FormControl(''),
+      street: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(64),
+      ]),
+      city: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(64),
+      ]),
+      state: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(62),
+      ]),
     }),
   });
 

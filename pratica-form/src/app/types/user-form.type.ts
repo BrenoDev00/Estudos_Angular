@@ -8,6 +8,6 @@ type UserAdressType = {
 
 export interface UserFormInterface {
   name: FormControl<string | null>;
-  age: FormControl<number>;
+  age: FormControl<number | null>;
   address: FormGroup<UserAdressType>;
 }
