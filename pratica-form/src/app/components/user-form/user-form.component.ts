@@ -21,6 +21,7 @@ export class UserFormComponent {
       Validators.maxLength(64),
       Validators.pattern(/^(?!\s*$).{3,64}$/),
     ]),
+    email: new FormControl('', [Validators.required, Validators.email]),
     age: new FormControl(0, [
       Validators.required,
       Validators.min(18),

@@ -17,6 +17,12 @@
     />
 
     <app-text-field
+      [label]="'E-mail'"
+      [id]="'email'"
+      [control]="$any(userForm.get('email'))"
+    />
+
+    <app-text-field
       [label]="'Idade'"
       [id]="'age'"
       [control]="$any(userForm.get('age'))"
