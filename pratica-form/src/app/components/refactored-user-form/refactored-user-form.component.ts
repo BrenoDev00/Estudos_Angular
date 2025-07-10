@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { TextFieldComponent } from '../text-field/text-field.component';
 import { ButtonComponent } from '../button/button.component';
 @Component({
@@ -11,7 +11,7 @@ export class RefactoredUserFormComponent {
   private formBuilder = inject(FormBuilder);
 
   userForm = this.formBuilder.group({
-    name: [''],
+    name: ['', Validators.required],
     age: [0],
     address: this.formBuilder.group({
       street: [''],

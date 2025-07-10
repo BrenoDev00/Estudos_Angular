@@ -1,5 +1,6 @@
 <button
   [type]="type()"
+  [disabled]="disabled()"
   (click)="onClick.emit()"
   [ngClass]="
     variant() === 'primary' ? primaryVariantStyle : secondaryVariantStyle
