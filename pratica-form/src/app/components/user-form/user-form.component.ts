@@ -75,5 +75,7 @@ export class UserFormComponent {
     alert(JSON.stringify(this.userForm.value));
 
     console.log(this.userForm.value);
+
+    this.clearFields();
   }
 }
