@@ -8,60 +8,123 @@
     {{ userForm.status }}
   </p>
 
-  <div>
-    <app-text-field
-      [class]="
-        userForm.get('name')?.invalid && userForm.get('name')?.touched
-          ? 'border-2 border-red-300'
-          : ''
-      "
-      [id]="'name'"
-      [label]="'Nome'"
-      [control]="$any(userForm.get('name'))"
-    />
+  <div class="flex gap-4">
+    <div class="flex flex-col gap-2">
+      <div>
+        <app-text-field
+          [class]="
+            userForm.get('name')?.invalid && userForm.get('name')?.touched
+              ? 'border-2 border-red-300'
+              : ''
+          "
+          [id]="'name'"
+          [label]="'Nome'"
+          [control]="$any(userForm.get('name'))"
+        />
 
-    @if(userForm.get('name')?.touched && userForm.get('name')?.invalid){
-    <app-error-message
-      [message]="'Informe o nome corretamente'"
-    ></app-error-message>
-    }
+        @if(userForm.get('name')?.touched && userForm.get('name')?.invalid){
+        <app-error-message
+          [message]="'Informe o nome corretamente'"
+        ></app-error-message>
+        }
+      </div>
+
+      <div>
+        <app-text-field
+          [class]="
+            userForm.get('email')?.invalid && userForm.get('email')?.touched
+              ? 'border-2 border-red-300'
+              : ''
+          "
+          [id]="'email'"
+          [label]="'E-mail'"
+          [control]="$any(userForm.get('email'))"
+        />
+
+        @if(userForm.get('email')?.invalid && userForm.get('email')?.touched){
+        <app-error-message [message]="'Informe o e-mail corretamente'" />
+        }
+      </div>
+
+      <div>
+        <app-text-field
+          [class]="
+            userForm.get('age')?.invalid && userForm.get('age')?.touched
+              ? 'border-2 border-red-300'
+              : ''
+          "
+          [id]="'age'"
+          [label]="'Idade'"
+          [control]="$any(userForm.get('age'))"
+        />
+
+        @if(userForm.get('age')?.invalid && userForm.get('age')?.touched){
+        <app-error-message [message]="'Informe a idade corretamente'" />
+        }
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <div>
+        <app-text-field
+          [class]="
+            userForm.get('address.street')?.invalid &&
+            userForm.get('address.street')?.touched
+              ? 'border-2 border-red-300'
+              : ''
+          "
+          [id]="'street'"
+          [label]="'Rua'"
+          [control]="$any(userForm.get('address.street'))"
+        />
+
+        @if(userForm.get('address.street')?.invalid &&
+        userForm.get('address.street')?.touched){
+        <app-error-message [message]="'Informe a rua corretamente'" />
+        }
+      </div>
+
+      <div>
+        <app-text-field
+          [class]="
+            userForm.get('address.city')?.invalid &&
+            userForm.get('address.city')?.touched
+              ? 'border-2 border-red-300'
+              : ''
+          "
+          [id]="'city'"
+          [label]="'Cidade'"
+          [control]="$any(userForm.get('address.city'))"
+        />
+
+        @if(userForm.get('address.city')?.invalid &&
+        userForm.get('address.city')?.touched){
+        <app-error-message [message]="'Informe a cidade corretamente'" />
+        }
+      </div>
+
+      <div>
+        <app-text-field
+          [class]="
+            userForm.get('address.state')?.invalid &&
+            userForm.get('address.state')?.touched
+              ? 'border-2 border-red-300'
+              : ''
+          "
+          [id]="'state'"
+          [label]="'Estado'"
+          [control]="$any(userForm.get('address.state'))"
+        />
+
+        @if(userForm.get('address.state')?.invalid &&
+        userForm.get('address.state')?.touched){
+        <app-error-message [message]="'Informe o estado corretamente'" />
+        }
+      </div>
+    </div>
   </div>
 
   <div>
-    <app-text-field
-      [class]="
-        userForm.get('email')?.invalid && userForm.get('email')?.touched
-          ? 'border-2 border-red-300'
-          : ''
-      "
-      [id]="'email'"
-      [label]="'E-mail'"
-      [control]="$any(userForm.get('email'))"
-    />
-
-    @if(userForm.get('email')?.invalid && userForm.get('email')?.touched){
-    <app-error-message [message]="'Informe o e-mail corretamente'" />
-    }
-  </div>
-
-  <div>
-    <app-text-field
-      [class]="
-        userForm.get('age')?.invalid && userForm.get('age')?.touched
-          ? 'border-2 border-red-300'
-          : ''
-      "
-      [id]="'age'"
-      [label]="'Idade'"
-      [control]="$any(userForm.get('age'))"
-    />
-
-    @if(userForm.get('age')?.invalid && userForm.get('age')?.touched){
-    <app-error-message [message]="'Informe a idade corretamente'" />
-    }
-  </div>
-
-  <div class="-ml-[20px]">
     <app-select-field
       [id]="'role'"
       [label]="'Cargo'"
@@ -80,66 +143,37 @@
     }
   </div>
 
-  <p class="text-white mt-4">address info</p>
-
   <div>
-    <app-text-field
-      [class]="
-        userForm.get('address.street')?.invalid &&
-        userForm.get('address.street')?.touched
-          ? 'border-2 border-red-300'
-          : ''
-      "
-      [id]="'street'"
-      [label]="'Rua'"
-      [control]="$any(userForm.get('address.street'))"
-    />
+    <div class="flex gap-4">
+      <div>
+        <app-text-field
+          [id]="'password'"
+          [control]="$any(userForm.get('password'))"
+          [label]="'Senha'"
+        />
 
-    @if(userForm.get('address.street')?.invalid &&
-    userForm.get('address.street')?.touched){
-    <app-error-message [message]="'Informe a rua corretamente'" />
-    }
+        @if(userForm.get('password')?.invalid &&
+        userForm.get('password')?.touched){
+        <app-error-message [message]="'Informe a senha'" />
+        }
+      </div>
+
+      <div>
+        <app-text-field
+          [id]="'same-password'"
+          [control]="$any(userForm.get('samePassword'))"
+          [label]="'Repita a senha'"
+        />
+
+        @if(userForm.hasError('samePasswordValidator') &&
+        userForm.get('samePassword')?.touched){
+        <app-error-message [message]="'Senhas incompatíveis'" />
+        }
+      </div>
+    </div>
   </div>
 
-  <div>
-    <app-text-field
-      [class]="
-        userForm.get('address.city')?.invalid &&
-        userForm.get('address.city')?.touched
-          ? 'border-2 border-red-300'
-          : ''
-      "
-      [id]="'city'"
-      [label]="'Cidade'"
-      [control]="$any(userForm.get('address.city'))"
-    />
-
-    @if(userForm.get('address.city')?.invalid &&
-    userForm.get('address.city')?.touched){
-    <app-error-message [message]="'Informe a cidade corretamente'" />
-    }
-  </div>
-
-  <div>
-    <app-text-field
-      [class]="
-        userForm.get('address.state')?.invalid &&
-        userForm.get('address.state')?.touched
-          ? 'border-2 border-red-300'
-          : ''
-      "
-      [id]="'state'"
-      [label]="'Estado'"
-      [control]="$any(userForm.get('address.state'))"
-    />
-
-    @if(userForm.get('address.state')?.invalid &&
-    userForm.get('address.state')?.touched){
-    <app-error-message [message]="'Informe o estado corretamente'" />
-    }
-  </div>
-
-  <div class="flex gap-4">
+  <div class="flex gap-4 mt-4">
     <app-button
       [class]="
         userForm.invalid ? 'bg-blue-300! cursor-not-allowed!' : 'bg-blue-800'
