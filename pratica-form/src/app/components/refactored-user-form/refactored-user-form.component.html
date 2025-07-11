@@ -61,6 +61,25 @@
     }
   </div>
 
+  <div class="-ml-[20px]">
+    <app-select-field
+      [id]="'role'"
+      [label]="'Cargo'"
+      [optionLabel]="'Informe seu cargo'"
+      [options]="roleOptions"
+      [control]="$any(userForm.get('role'))"
+      [class]="
+        userForm.get('role')?.invalid && userForm.get('role')?.touched
+          ? 'border-2! border-red-300!'
+          : ''
+      "
+    />
+
+    @if(userForm.get('role')?.invalid && userForm.get('role')?.touched){
+    <app-error-message [message]="'Informe o cargo'" />
+    }
+  </div>
+
   <p class="text-white mt-4">address info</p>
 
   <div>

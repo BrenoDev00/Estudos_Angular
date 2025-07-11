@@ -1,0 +1,18 @@
+<div class="flex flex-col gap-2">
+  <label class="text-white" [for]="id()">{{ label() }}</label>
+
+  <select
+    [ngClass]="
+      'text-white bg-slate-800 border rounded-md border-white p-1 cursor-pointer'
+    "
+    [class]="class()!"
+    [id]="id()"
+    [formControl]="control()"
+  >
+    <option value="" checked disabled>{{ optionLabel() }}</option>
+
+    @for(option of options(); track option){
+    <option [value]="option">{{ option }}</option>
+    }
+  </select>
+</div>

@@ -3,9 +3,11 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { TextFieldComponent } from '../text-field/text-field.component';
 import { ButtonComponent } from '../button/button.component';
 import { ErrorMessageComponent } from '../error-message/error-message.component';
+import { SelectFieldComponent } from '../select-field/select-field.component';
 @Component({
   selector: 'app-refactored-user-form',
   imports: [
+    SelectFieldComponent,
     ReactiveFormsModule,
     ErrorMessageComponent,
     TextFieldComponent,
@@ -23,6 +25,7 @@ export class RefactoredUserFormComponent {
     ],
     email: ['', [Validators.required, Validators.email]],
     age: [0, [Validators.required, Validators.min(18), Validators.max(120)]],
+    role: ['', Validators.required],
     address: this.formBuilder.group({
       street: [
         '',
@@ -51,6 +54,8 @@ export class RefactoredUserFormComponent {
     }),
   });
 
+  roleOptions: string[] = ['Administrador', 'Contador', 'Programador'];
+
   onSubmit(): void {
     alert(JSON.stringify(this.userForm.value));
 
@@ -58,15 +63,6 @@ export class RefactoredUserFormComponent {
   }
 
   resetFields(): void {
-    this.userForm.patchValue({
-      name: '',
-      email: '',
-      age: 0,
-      address: {
-        street: '',
-        city: '',
-        state: '',
-      },
-    });
+    this.userForm.reset();
   }
 }
