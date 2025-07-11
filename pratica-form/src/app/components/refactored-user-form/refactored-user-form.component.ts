@@ -67,6 +67,11 @@ export class RefactoredUserFormComponent {
   roleOptions: string[] = ['Administrador', 'Contador', 'Programador'];
 
   onSubmit(): void {
+    if (this.userForm.invalid) {
+      this.userForm.markAllAsTouched();
+      return;
+    }
+
     alert(JSON.stringify(this.userForm.value));
 
     console.log(this.userForm.value);

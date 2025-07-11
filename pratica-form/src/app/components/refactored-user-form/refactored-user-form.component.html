@@ -166,7 +166,7 @@
         />
 
         @if(userForm.hasError('samePasswordValidator') &&
-        userForm.get('samePassword')?.touched){
+        userForm.get('samePassword')?.touched) {
         <app-error-message [message]="'Senhas incompatíveis'" />
         }
       </div>
@@ -174,13 +174,7 @@
   </div>
 
   <div class="flex gap-4 mt-4">
-    <app-button
-      [class]="
-        userForm.invalid ? 'bg-blue-300! cursor-not-allowed!' : 'bg-blue-800'
-      "
-      [disabled]="userForm.invalid"
-      [variant]="'secondary'"
-      [type]="'submit'"
+    <app-button [disabled]="false" [variant]="'secondary'" [type]="'submit'"
       >Enviar</app-button
     >
 
