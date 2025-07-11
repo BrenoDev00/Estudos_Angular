@@ -6,7 +6,7 @@
   >
     <p class="text-white">Form utilizando o FormGroup e formControl</p>
 
-    @if(userForm.dirty || userForm){
+    @if(userForm.dirty){
     <p
       [ngClass]="{
         'text-red-300': userForm.status === 'INVALID' && userForm.dirty,
