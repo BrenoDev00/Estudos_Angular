@@ -105,7 +105,7 @@
           "
           [id]="'street'"
           [label]="'Rua'"
-          [control]="$any(userForm.get('address.street'))"
+          [control]="userForm.controls.address.controls.street"
         />
 
         <app-error-message
@@ -118,7 +118,6 @@
 
         <app-error-message
           *ngIf="
-            
             userForm.get('address.street')?.errors?.['maxlength']
           "
           [message]="'Máximo 54 caracteres'"
@@ -142,13 +141,24 @@
           "
           [id]="'city'"
           [label]="'Cidade'"
-          [control]="$any(userForm.get('address.city'))"
+          [control]="userForm.controls.address.controls.city"
         />
 
-        @if(userForm.get('address.city')?.invalid &&
-        userForm.get('address.city')?.touched){
-        <app-error-message [message]="'Informe a cidade corretamente'" />
-        }
+        <app-error-message
+          *ngIf="userForm.get('address.city')?.errors?.['required'] &&
+        userForm.get('address.city')?.touched"
+          [message]="'Campo obrigatório'"
+        />
+
+        <app-error-message
+          *ngIf="userForm.get('address.city')?.errors?.['minlength']"
+          [message]="'Mínimo 3 caracteres'"
+        />
+
+        <app-error-message
+          *ngIf="userForm.get('address.city')?.errors?.['maxlength']"
+          [message]="'Máximo 54 caracteres'"
+        />
       </div>
 
       <div>
@@ -161,13 +171,24 @@
           "
           [id]="'state'"
           [label]="'Estado'"
-          [control]="$any(userForm.get('address.state'))"
+          [control]="userForm.controls.address.controls.state"
         />
 
-        @if(userForm.get('address.state')?.invalid &&
-        userForm.get('address.state')?.touched){
-        <app-error-message [message]="'Informe o estado corretamente'" />
-        }
+        <app-error-message
+          *ngIf="userForm.get('address.state')?.touched &&
+        userForm.get('address.state')?.errors?.['required']"
+          [message]="'Campo obrigatório'"
+        />
+
+        <app-error-message
+          *ngIf="userForm.get('address.state')?.errors?.['maxlength']"
+          [message]="'Máximo 54 caracteres'"
+        />
+
+        <app-error-message
+          *ngIf="userForm.get('address.state')?.errors?.['minlength']"
+          [message]="'Mínimo 2 caracteres'"
+        />
       </div>
     </div>
   </div>
@@ -178,17 +199,17 @@
       [label]="'Cargo'"
       [optionLabel]="'Informe seu cargo'"
       [options]="roleOptions"
-      [control]="$any(userForm.get('role'))"
+      [control]="userForm.controls.role"
       [class]="
         userForm.get('role')?.invalid && userForm.get('role')?.touched
           ? 'border-2! border-red-300!'
           : ''
       "
     />
-
-    @if(userForm.get('role')?.invalid && userForm.get('role')?.touched){
-    <app-error-message [message]="'Informe o cargo'" />
-    }
+    <app-error-message
+      *ngIf="userForm.get('role')?.touched && userForm.get('role')?.errors?.['required']"
+      [message]="'Campo obrigatório'"
+    />
   </div>
 
   <div>
@@ -196,27 +217,45 @@
       <div>
         <app-text-field
           [id]="'password'"
-          [control]="$any(userForm.get('password'))"
+          [control]="userForm.controls.password"
           [label]="'Senha'"
         />
 
-        @if(userForm.get('password')?.invalid &&
-        userForm.get('password')?.touched){
-        <app-error-message [message]="'Informe a senha'" />
-        }
+        <app-error-message
+          *ngIf="
+            userForm.get('password')?.errors?.['required'] &&
+            userForm.get('password')?.touched
+          "
+          [message]="'Campo obrigatório'"
+        />
+
+        <app-error-message
+          *ngIf="
+            userForm.get('password')?.errors?.['minlength']
+          "
+          [message]="'Mínimo 3 caracteres'"
+        />
+
+        <app-error-message
+          *ngIf="userForm.get('password')?.errors?.['maxlength']"
+          [message]="'Máximo 12 caracteres'"
+        />
       </div>
 
       <div>
         <app-text-field
           [id]="'same-password'"
-          [control]="$any(userForm.get('samePassword'))"
+          [control]="userForm.controls.samePassword"
           [label]="'Repita a senha'"
         />
 
-        @if(userForm.hasError('samePasswordValidator') &&
-        userForm.get('samePassword')?.touched) {
-        <app-error-message [message]="'Senhas incompatíveis'" />
-        }
+        <app-error-message
+          *ngIf="
+            userForm.hasError('samePasswordValidator') &&
+            userForm.get('samePassword')?.touched
+          "
+          [message]="'Senhas incompatíveis'"
+        />
       </div>
     </div>
   </div>

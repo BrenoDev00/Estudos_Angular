@@ -60,7 +60,14 @@ export class RefactoredUserFormComponent {
           ],
         ],
       }),
-      password: ['', [Validators.required]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(12),
+        ],
+      ],
       samePassword: ['', [Validators.required]],
     },
     { validators: samePasswordValidator }
