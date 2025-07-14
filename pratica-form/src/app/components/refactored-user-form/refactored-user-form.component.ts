@@ -5,9 +5,11 @@ import { ButtonComponent } from '../button/button.component';
 import { ErrorMessageComponent } from '../error-message/error-message.component';
 import { SelectFieldComponent } from '../select-field/select-field.component';
 import { samePasswordValidator } from '../../utils/form-validators';
+import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-refactored-user-form',
   imports: [
+    NgIf,
     SelectFieldComponent,
     ReactiveFormsModule,
     ErrorMessageComponent,
@@ -30,7 +32,7 @@ export class RefactoredUserFormComponent {
         ],
       ],
       email: ['', [Validators.required, Validators.email]],
-      age: [0, [Validators.required, Validators.min(18), Validators.max(120)]],
+      age: ['', [Validators.required, Validators.min(18), Validators.max(120)]],
       role: ['', Validators.required],
       address: this.formBuilder.group({
         street: [

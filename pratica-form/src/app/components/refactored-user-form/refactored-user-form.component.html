@@ -19,14 +19,23 @@
           "
           [id]="'name'"
           [label]="'Nome'"
-          [control]="$any(userForm.get('name'))"
+          [control]="userForm.controls.name"
         />
 
-        @if(userForm.get('name')?.touched && userForm.get('name')?.invalid){
         <app-error-message
-          [message]="'Informe o nome corretamente'"
-        ></app-error-message>
-        }
+          *ngIf="userForm.get('name')?.errors?.['required'] && userForm.get('name')?.touched"
+          [message]="'Campo obrigatório'"
+        />
+
+        <app-error-message
+          *ngIf="userForm.get('name')?.errors?.['minlength']"
+          [message]="'Mínimo 3 caracteres'"
+        />
+
+        <app-error-message
+          *ngIf="userForm.get('name')?.errors?.['maxlength']"
+          [message]="'Máximo 64 caracteres'"
+        />
       </div>
 
       <div>
@@ -38,12 +47,22 @@
           "
           [id]="'email'"
           [label]="'E-mail'"
-          [control]="$any(userForm.get('email'))"
+          [control]="userForm.controls.email"
         />
 
-        @if(userForm.get('email')?.invalid && userForm.get('email')?.touched){
-        <app-error-message [message]="'Informe o e-mail corretamente'" />
-        }
+        <app-error-message
+          *ngIf="
+            userForm.get('email')?.errors?.['required'] && userForm.get('email')?.touched
+          "
+          [message]="'Campo obrigatório'"
+        />
+
+        <app-error-message
+          *ngIf="
+            userForm.get('email')?.errors?.['email']
+          "
+          [message]="'E-mail inválido'"
+        />
       </div>
 
       <div>
@@ -55,12 +74,23 @@
           "
           [id]="'age'"
           [label]="'Idade'"
-          [control]="$any(userForm.get('age'))"
+          [control]="userForm.controls.age"
         />
 
-        @if(userForm.get('age')?.invalid && userForm.get('age')?.touched){
-        <app-error-message [message]="'Informe a idade corretamente'" />
-        }
+        <app-error-message
+          *ngIf="userForm.get('age')?.errors?.['required'] && userForm.get('age')?.touched"
+          [message]="'Campo obrigatório'"
+        />
+
+        <app-error-message
+          *ngIf="userForm.get('age')?.errors?.['max']"
+          [message]="'Idade máxima 120'"
+        />
+
+        <app-error-message
+          *ngIf="userForm.get('age')?.errors?.['min']"
+          [message]="'Idade mínima 18'"
+        />
       </div>
     </div>
 
@@ -78,10 +108,28 @@
           [control]="$any(userForm.get('address.street'))"
         />
 
-        @if(userForm.get('address.street')?.invalid &&
-        userForm.get('address.street')?.touched){
-        <app-error-message [message]="'Informe a rua corretamente'" />
-        }
+        <app-error-message
+          *ngIf="
+            userForm.get('address.street')?.touched &&
+            userForm.get('address.street')?.errors?.['required']
+          "
+          [message]="'Campo obrigatório'"
+        />
+
+        <app-error-message
+          *ngIf="
+            
+            userForm.get('address.street')?.errors?.['maxlength']
+          "
+          [message]="'Máximo 54 caracteres'"
+        />
+
+        <app-error-message
+          *ngIf="
+            userForm.get('address.street')?.errors?.['minlength']
+          "
+          [message]="'Mínimo 5 caracteres'"
+        />
       </div>
 
       <div>
