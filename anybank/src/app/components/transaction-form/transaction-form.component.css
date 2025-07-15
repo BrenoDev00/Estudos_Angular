@@ -11,6 +11,12 @@ h1 {
   gap: 1.6rem;
 }
 
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 #button-container {
   margin-top: 3.2rem;
 }

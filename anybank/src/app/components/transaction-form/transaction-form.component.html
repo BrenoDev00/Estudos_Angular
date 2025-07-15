@@ -1,28 +1,42 @@
-<form (ngSubmit)="onSubmit()" ngNativeValidate>
+<form (ngSubmit)="onSubmit()" [formGroup]="transactionForm" ngNativeValidate>
   <h1>Nova transação</h1>
 
   <div id="form-fields-container">
-    <app-select-field
-      [id]="'transaction-options'"
-      [name]="'transaction-options'"
-      [label]="'Transação'"
-      [required]="true"
-      [optionPlaceholder]="'Selecione o tipo de transação'"
-      [selectOptions]="['Depósito', 'Saque']"
-      [(ngModel)]="this.formValues.transactionType"
-    />
+    <div class="form-group">
+      <app-select-field
+        [id]="'transaction-options'"
+        [name]="'transaction-options'"
+        [label]="'Transação'"
+        [required]="true"
+        [optionPlaceholder]="'Selecione o tipo de transação'"
+        [selectOptions]="['Depósito', 'Saque']"
+        [control]="transactionForm.controls.transactionType"
+      />
 
-    <app-input-field
-      [id]="'transaction-value'"
-      [name]="'transaction-value'"
-      [label]="'Valor'"
-      [type]="'number'"
-      [placeholder]="'R$ 00,00'"
-      [required]="true"
-      [step]="'0.01'"
-      [min]="'0.01'"
-      [(ngModel)]="this.formValues.transactionValue"
-    />
+      @if(transactionForm.get('transactionType')?.errors?.['required'] &&
+      transactionForm.get('transactionType')?.touched){
+      <app-error-message [message]="'Selecione o tipo de transação'" />
+      }
+    </div>
+
+    <div class="form-group">
+      <app-input-field
+        [id]="'transaction-value'"
+        [name]="'transaction-value'"
+        [label]="'Valor'"
+        [type]="'number'"
+        [placeholder]="'R$ 00,00'"
+        [required]="true"
+        [step]="'0.01'"
+        [min]="'0.01'"
+        [control]="transactionForm.controls.transactionValue"
+      />
+
+      @if(transactionForm.get('transactionValue')?.touched &&
+      transactionForm.get('transactionValue')?.errors?.['required']){
+      <app-error-message [message]="'Selecione o valor da transação'" />
+      }
+    </div>
   </div>
 
   <div id="button-container">

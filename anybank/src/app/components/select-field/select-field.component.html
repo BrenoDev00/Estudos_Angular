@@ -5,8 +5,7 @@
     [name]="this.name()"
     [id]="this.id()"
     [required]="this.required()"
-    [value]="this.value"
-    (change)="this.updateSelectValue($event)"
+    [formControl]="control()"
   >
     <option value="" selected disabled>
       {{ this.optionPlaceholder() }}

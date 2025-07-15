@@ -12,6 +12,8 @@
   --neutral-dark-gray: #8b8b8b;
   --neutral-medium-gray: #a6a6a6;
   --neutral-light-gray: #cbcbcb;
+
+  --alert-color: #ad1f1f;
 }
 
 html {

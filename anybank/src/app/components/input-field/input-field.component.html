@@ -9,8 +9,6 @@
     [required]="this.required()"
     [step]="this.step()"
     [min]="this.min()"
-    [value]="this.value"
-    (input)="this.updateInputValue($event)"
-    (blur)="this.onTouched()"
+    [formControl]="this.control()"
   />
 </div>
