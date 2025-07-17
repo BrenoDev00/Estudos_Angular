@@ -28,13 +28,7 @@ export class ListaLivrosComponent implements OnInit {
 
   livros: Livro[] = [];
 
-  generos: GeneroLiterario[] = [
-    { id: 'romance', value: 'Romance' },
-    { id: 'misterio', value: 'Mistério' },
-    { id: 'fantasia', value: 'Fantasia' },
-    { id: 'ficcao-cientifica', value: 'Ficção Científica' },
-    { id: 'tecnicos', value: 'Técnicos' },
-  ];
+
 
   constructor(private livroService: LivroService) {}
   // Outra forma de usar o serviço:
