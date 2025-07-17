@@ -8,7 +8,7 @@ import { GeneroLiterario, Livro } from '../../componentes/livro/livro';
 import { LivroComponent } from '../../componentes/livro/livro.component';
 import { SubtituloComponent } from '../../componentes/subtitulo/subtitulo.component';
 import { TituloComponent } from '../../componentes/titulo/titulo.component';
-
+import { LivroService } from '../../services/livro.service';
 @Component({
   selector: 'app-lista-livros',
   imports: [
@@ -18,25 +18,33 @@ import { TituloComponent } from '../../componentes/titulo/titulo.component';
     DivisorComponent,
     BotaoComponent,
     SubtituloComponent,
-    EstadoVazioComponent
+    EstadoVazioComponent,
   ],
   templateUrl: './lista-livros.component.html',
-  styleUrl: './lista-livros.component.css'
+  styleUrl: './lista-livros.component.css',
 })
 export class ListaLivrosComponent implements OnInit {
   generosComLivros: { genero: GeneroLiterario; livros: Livro[] }[] = [];
+
+  livros: Livro[] = [];
 
   generos: GeneroLiterario[] = [
     { id: 'romance', value: 'Romance' },
     { id: 'misterio', value: 'Mistério' },
     { id: 'fantasia', value: 'Fantasia' },
     { id: 'ficcao-cientifica', value: 'Ficção Científica' },
-    { id: 'tecnicos', value: 'Técnicos' }
+    { id: 'tecnicos', value: 'Técnicos' },
   ];
 
+  constructor(private livroService: LivroService) {}
+  // Outra forma de usar o serviço:
+  // private livroService: LivroService = inject(LivroService)
 
   ngOnInit() {
-    this.organizarLivrosPorGenero();
+    this.livroService.obterLivros().subscribe((livros: Livro[]): void => {
+      this.livros = livros;
+      console.log(this.livros);
+    });
   }
 
   organizarLivrosPorGenero() {
