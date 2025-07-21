@@ -9,7 +9,7 @@ import { GeneroLiterario } from '../componentes/livro/livro';
 export class LivroService {
   private API_URL: string = 'http://localhost:3000/livros';
 
-  private generos: GeneroLiterario[] = [
+  generos: GeneroLiterario[] = [
     { id: 'romance', value: 'Romance' },
     { id: 'misterio', value: 'Mistério' },
     { id: 'fantasia', value: 'Fantasia' },
