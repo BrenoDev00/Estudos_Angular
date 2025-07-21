@@ -29,7 +29,10 @@ import { LivroService } from '../../services/livro.service';
 })
 export class FormularioComponent implements OnInit {
   livroFormulario!: FormGroup;
+
   generos: GeneroLiterario[] = [];
+
+  submitForm = output<Livro>();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -50,5 +53,16 @@ export class FormularioComponent implements OnInit {
       genero: [''],
       imagem: [''],
     });
+  }
+
+  emitirLivroAtualizado(): void {
+    const livroAtualizado: Livro = {
+      ...this.livroFormulario.value,
+      genero: this.generos.find((genero) => {
+        return genero.id === this.livroFormulario.value.genero;
+      }),
+    };
+
+    this.submitForm.emit(livroAtualizado);
   }
 }
