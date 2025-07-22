@@ -40,6 +40,4 @@ export class ListaLivrosComponent implements OnInit {
         }));
       });
   }
-
-  organizarLivrosPorGenero() {}
 }

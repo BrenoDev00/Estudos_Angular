@@ -11,6 +11,7 @@ import { FormularioComponent } from '../../componentes/formulario/formulario.com
 })
 export class CriarLivroComponent {
   constructor(private livroService: LivroService, private router: Router) {}
+  // private livroService: LivroService = inject(LivroService)
 
   criarLivro(livro: Livro): void {
     this.livroService.adicionarLivro(livro).subscribe(() => {

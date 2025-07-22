@@ -1,24 +1,28 @@
 import { CommonModule } from '@angular/common';
-import { Component, input } from '@angular/core';
-
+import { Component, input, inject } from '@angular/core';
+import { LivroService } from '../../services/livro.service';
 import { Livro } from './livro';
 import { BotaoComponent } from '../botao/botao.component';
 
 @Component({
   selector: 'app-livro',
-  imports: [
-    CommonModule,
-    BotaoComponent
-  ],
+  imports: [CommonModule, BotaoComponent],
   templateUrl: './livro.component.html',
-  styleUrl: './livro.component.css'
+  styleUrl: './livro.component.css',
 })
 export class LivroComponent {
+  private livroService: LivroService = inject(LivroService);
 
   livro = input.required<Livro>();
 
   alternarFavorito() {
-    this.livro().favorito = !this.livro().favorito;
-  }
+    const livroAtualizado: Livro = {
+      ...this.livro(),
+      favorito: !this.livro().favorito,
+    };
 
+    this.livroService.atualizarGenero(livroAtualizado).subscribe(() => {
+      this.livro().favorito = livroAtualizado.favorito;
+    });
+  }
 }
