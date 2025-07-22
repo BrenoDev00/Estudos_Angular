@@ -21,8 +21,14 @@ export class LivroComponent {
       favorito: !this.livro().favorito,
     };
 
-    this.livroService.atualizarGenero(livroAtualizado).subscribe(() => {
-      this.livro().favorito = livroAtualizado.favorito;
+    this.livroService.atualizarGenero(livroAtualizado).subscribe({
+      next: () => {
+        this.livro().favorito = livroAtualizado.favorito;
+      },
+
+      error: (error) => {
+        console.error(error);
+      },
     });
   }
 }

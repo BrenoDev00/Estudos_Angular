@@ -31,13 +31,16 @@ export class ListaLivrosComponent implements OnInit {
   // private livroService: LivroService = inject(LivroService)
 
   ngOnInit() {
-    this.livroService
-      .organizarLivrosPorGenero()
-      .subscribe((livrosPorGenero): void => {
+    this.livroService.organizarLivrosPorGenero().subscribe({
+      next: (livrosPorGenero) => {
         this.generosComLivros = this.livroService.generos.map((genero) => ({
           genero,
           livros: livrosPorGenero.get(genero.id) ?? [],
         }));
-      });
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
   }
 }

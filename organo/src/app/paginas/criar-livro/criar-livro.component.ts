@@ -14,8 +14,13 @@ export class CriarLivroComponent {
   // private livroService: LivroService = inject(LivroService)
 
   criarLivro(livro: Livro): void {
-    this.livroService.adicionarLivro(livro).subscribe(() => {
-      this.router.navigate(['lista-livros']);
+    this.livroService.adicionarLivro(livro).subscribe({
+      next: () => {
+        this.router.navigate(['lista-livros']);
+      },
+      error: (error) => {
+        console.error(error);
+      },
     });
   }
 }

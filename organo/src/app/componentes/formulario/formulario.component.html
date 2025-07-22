@@ -7,8 +7,8 @@
     <app-subtitulo texto="Preencha os dados para criar o card do livro" />
     <div>
       <app-campo-texto
-        label="Título"
-        id="titulo"
+        [label]="'Título'"
+        [id]="'titulo'"
         placeholder="Digite o título do livro"
         formControlName="titulo"
       />
