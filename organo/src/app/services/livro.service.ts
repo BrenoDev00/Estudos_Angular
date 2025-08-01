@@ -23,6 +23,10 @@ export class LivroService {
     return this.httpClient.get<Livro[]>(this.API_URL);
   }
 
+  obterLivroPorId(livroId: string): Observable<Livro> {
+    return this.httpClient.get<Livro>(`${this.API_URL}/${livroId}`);
+  }
+
   organizarLivrosPorGenero(): Observable<Map<string, Livro[]>> {
     return this.obterLivros().pipe(
       map((livros: Livro[]) => {
