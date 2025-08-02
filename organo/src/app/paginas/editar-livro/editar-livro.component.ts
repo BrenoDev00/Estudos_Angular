@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Livro } from '../../componentes/livro/livro';
 import { FormularioComponent } from '../../componentes/formulario/formulario.component';
 import { LivroService } from '../../services/livro.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-editar-livro',
   imports: [FormularioComponent],
@@ -14,6 +14,7 @@ export class EditarLivroComponent implements OnInit {
 
   private livroService: LivroService = inject(LivroService);
   private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
+  private router: Router = inject(Router);
 
   ngOnInit(): void {
     const livroId = this.activatedRoute.snapshot.paramMap.get('id');
@@ -25,6 +26,22 @@ export class EditarLivroComponent implements OnInit {
         },
         error: (error) => {
           console.error(error);
+        },
+      });
+    }
+  }
+
+  editarLivro(livro: Livro): void {
+    const livroId = this.activatedRoute.snapshot.paramMap.get('id');
+
+    if (livroId) {
+      this.livroService.atualizarLivroPorId(livro, livroId).subscribe({
+        next: () => {
+          alert('livro editado com sucesso!');
+          this.router.navigate(['lista-livros']);
+        },
+        error: () => {
+          alert('não foi possível editar o livro.');
         },
       });
     }

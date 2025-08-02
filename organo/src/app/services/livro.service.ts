@@ -52,9 +52,17 @@ export class LivroService {
     return this.httpClient.post<Livro>(this.API_URL, novoLivro);
   }
 
+  atualizarLivroPorId(livro: Livro, livroId: string): Observable<Livro> {
+    return this.httpClient.put<Livro>(`${this.API_URL}/${livroId}`, livro);
+  }
+
   atualizarGenero(livro: Livro): Observable<Livro> {
     return this.httpClient.patch<Livro>(`${this.API_URL}/${livro.id}`, {
       favorito: livro.favorito,
     });
+  }
+
+  excluirLivroPorId(livroId: string): Observable<Livro> {
+    return this.httpClient.delete<Livro>(`${this.API_URL}/${livroId}`);
   }
 }

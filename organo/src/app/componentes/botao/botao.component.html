@@ -1,7 +1,9 @@
-<button [routerLink]="rota()" [type]="tipo()" [class]="classeCss">
+<button
+  (click)="clicked.emit()"
+  [routerLink]="rota()"
+  [type]="tipo()"
+  [class]="classeCss"
+>
   <i class="material-icons">{{ icone() }}</i>
   {{ texto() }}
 </button>
-
-
-

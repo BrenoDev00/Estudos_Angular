@@ -3,6 +3,7 @@ import { Component, input, inject } from '@angular/core';
 import { LivroService } from '../../services/livro.service';
 import { Livro } from './livro';
 import { BotaoComponent } from '../botao/botao.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-livro',
@@ -12,6 +13,7 @@ import { BotaoComponent } from '../botao/botao.component';
 })
 export class LivroComponent {
   private livroService: LivroService = inject(LivroService);
+  private route: Router = inject(Router);
 
   livro = input.required<Livro>();
 
@@ -28,6 +30,18 @@ export class LivroComponent {
 
       error: (error) => {
         console.error(error);
+      },
+    });
+  }
+
+  excluirLivro(livroId: string): void {
+    this.livroService.excluirLivroPorId(livroId).subscribe({
+      next: () => {
+        alert('livro excluido!');
+        window.location.reload();
+      },
+      error: () => {
+        alert('erro ao excluir livro.');
       },
     });
   }

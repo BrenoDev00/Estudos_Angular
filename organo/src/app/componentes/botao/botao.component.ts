@@ -1,11 +1,11 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-botao',
   imports: [RouterLink],
   templateUrl: './botao.component.html',
-  styleUrl: './botao.component.css'
+  styleUrl: './botao.component.css',
 })
 export class BotaoComponent {
   texto = input<string>();
@@ -14,9 +14,11 @@ export class BotaoComponent {
   tipo = input<string>('button');
   tipoDeBotao = input<'primario' | 'secundario'>('primario');
 
+  clicked = output<void>();
+
   private classesBotao: Record<string, string> = {
     primario: 'botao-primario',
-    secundario: 'botao-secundario'
+    secundario: 'botao-secundario',
   };
 
   get classeCss(): string {
