@@ -62,7 +62,7 @@ export class LivroService {
     });
   }
 
-  excluirLivroPorId(livroId: string): Observable<Livro> {
-    return this.httpClient.delete<Livro>(`${this.API_URL}/${livroId}`);
+  excluirLivroPorId(livroId: string): Observable<void> {
+    return this.httpClient.delete<void>(`${this.API_URL}/${livroId}`);
   }
 }

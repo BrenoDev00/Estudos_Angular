@@ -19,7 +19,7 @@
       icone="edit"
     />
     <app-botao
-      (clicked)="excluirLivro(livro().id)"
+      (clicked)="aoExcluirLivro.emit(livro().id)"
       tipoDeBotao="secundario"
       texto="Excluir"
       icone="delete"

@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 
 import { BotaoComponent } from '../../componentes/botao/botao.component';
 import { DivisorComponent } from '../../componentes/divisor/divisor.component';
@@ -40,6 +46,32 @@ export class ListaLivrosComponent implements OnInit {
       },
       error: (error) => {
         console.error(error);
+      },
+    });
+  }
+
+  atualizarUi(): void {
+    this.livroService.organizarLivrosPorGenero().subscribe({
+      next: (livrosPorGenero) => {
+        this.generosComLivros = this.livroService.generos.map((genero) => ({
+          genero,
+          livros: livrosPorGenero.get(genero.id) ?? [],
+        }));
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+  }
+
+  excluirLivro(livroId: string): void {
+    this.livroService.excluirLivroPorId(livroId).subscribe({
+      next: () => {
+        alert('livro excluido!');
+        this.atualizarUi();
+      },
+      error: () => {
+        alert('erro ao excluir livro.');
       },
     });
   }

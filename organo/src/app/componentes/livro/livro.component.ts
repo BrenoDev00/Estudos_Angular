@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, inject } from '@angular/core';
+import { Component, input, inject, output } from '@angular/core';
 import { LivroService } from '../../services/livro.service';
 import { Livro } from './livro';
 import { BotaoComponent } from '../botao/botao.component';
@@ -16,6 +16,8 @@ export class LivroComponent {
   private route: Router = inject(Router);
 
   livro = input.required<Livro>();
+
+  aoExcluirLivro = output<string>();
 
   alternarFavorito() {
     const livroAtualizado: Livro = {
@@ -34,15 +36,5 @@ export class LivroComponent {
     });
   }
 
-  excluirLivro(livroId: string): void {
-    this.livroService.excluirLivroPorId(livroId).subscribe({
-      next: () => {
-        alert('livro excluido!');
-        window.location.reload();
-      },
-      error: () => {
-        alert('erro ao excluir livro.');
-      },
-    });
-  }
+ 
 }

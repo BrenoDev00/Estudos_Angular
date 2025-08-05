@@ -21,7 +21,7 @@
   }
   <div class="livros-genero">
     @for(livro of item.livros; track livro) {
-    <app-livro [livro]="livro" />
+    <app-livro [livro]="livro" (aoExcluirLivro)="excluirLivro($event)" />
     }
   </div>
 </section>
