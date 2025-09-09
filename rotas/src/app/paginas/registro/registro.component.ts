@@ -8,6 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { inject } from '@angular/core';
+import { AuthService } from '../../servicos/auth.service';
 
 @Component({
   selector: 'app-registro',
@@ -21,6 +22,8 @@ export class RegistroComponent {
 
   private readonly router = inject(Router);
 
+  private readonly authService = inject(AuthService);
+
   constructor(private fb: FormBuilder) {
     this.registroForm = this.fb.group({
       name: ['', Validators.required],
@@ -30,6 +33,8 @@ export class RegistroComponent {
   }
 
   aoEnviar() {
+    this.authService.login();
+
     this.router.navigate(['/posts']);
   }
 }
