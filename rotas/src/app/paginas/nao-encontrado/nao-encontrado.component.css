@@ -1,11 +1,23 @@
 .not-found {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-size: 2rem;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  flex-direction: column;
+}
+
+button {
+  all: unset;
+  margin-top: 12px;
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px 12px;
 }
