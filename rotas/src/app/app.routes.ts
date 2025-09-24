@@ -5,6 +5,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { NaoEncontradoComponent } from './paginas/nao-encontrado/nao-encontrado.component';
 import { LayoutComponent } from './componentes/layout/layout.component';
 import { DetalhesPostagemComponent } from './paginas/detalhes-postagem/detalhes-postagem.component';
+import { postResolver } from './resolvers/post.resolver';
 
 export const routes: Routes = [
   {
@@ -16,10 +17,11 @@ export const routes: Routes = [
         path: 'posts',
         title: 'Posts',
         component: ListaPostagemComponent,
-      },  
+      },
       {
         path: 'posts/:id',
         title: 'Post',
+        resolve: { post: postResolver },
         component: DetalhesPostagemComponent,
       },
     ],

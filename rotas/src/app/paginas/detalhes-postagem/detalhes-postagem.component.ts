@@ -1,6 +1,5 @@
-import { Component, OnInit, signal, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import * as data from '../../db.json';
 import { Postagem } from '../../models/post.model';
 import { UsuarioPostagemComponent } from '../../componentes/usuario-postagem/usuario-postagem.component';
 import { ActivatedRoute } from '@angular/router';
@@ -10,20 +9,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./detalhes-postagem.component.css'],
   imports: [CommonModule, UsuarioPostagemComponent],
 })
-export class DetalhesPostagemComponent implements OnInit {
+export class DetalhesPostagemComponent {
   private readonly activatedRoute = inject(ActivatedRoute);
 
-  post = signal<Postagem | undefined>(undefined);
+  post: Postagem | undefined;
 
-  ngOnInit(): void {
-    this.getPostById();
+  constructor() {
+    this.post = this.activatedRoute.snapshot.data['post'];
   }
-
-  getPostById = (): void => {
-    const postId = this.activatedRoute.snapshot.paramMap.get('id');
-
-    const post = data.posts.find((post) => post.id === postId);
-
-    this.post.set(post);
-  };
 }
