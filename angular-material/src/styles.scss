@@ -1,6 +1,6 @@
 @use '@angular/material' as mat;
-@use './theme-colors' as theme;
-@use 'tailwindcss';
+@use './material-theme' as theme;
+@use './tailwind-theme';
 
 html,
 body {

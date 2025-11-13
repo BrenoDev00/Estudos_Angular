@@ -1,17 +1,27 @@
 <header class="bg-black w-full p-4 flex items-center justify-around">
-  <img src="assets/logo.png" class="w-40" alt="Logo Jornada." />
+  <img src="assets/logo.png" class="w-40 cursor-pointer" alt="Logo Jornada." routerLink="" />
 
   <div class="flex items-center gap-10">
     <div class="flex items-center gap-10">
-      <a class="text-white text-base cursor-pointer">Vender milhas</a>
-      <a class="text-white text-base cursor-pointer">Sobre</a>
+      <a
+        class="text-white text-base cursor-pointer"
+        routerLink="/vender-milhas"
+        routerLinkActive="text-p-40!"
+        >Vender milhas</a
+      >
+      <a
+        class="text-white text-base cursor-pointer"
+        routerLink="/sobre"
+        routerLinkActive="text-p-40!"
+        >Sobre</a
+      >
     </div>
 
     <div class="flex items-center gap-4">
       @if(isLoggedIn()){
       <img src="/assets/user-profile.png" class="w-10" alt="Imagem de perfil de usuário." />
       }@else {
-      <button matButton="filled">Cadastre-se</button>
+      <button matButton="filled" routerLink="cadastrar">Cadastre-se</button>
       }
       <!--  -->
       @if(isLoggedIn()){
