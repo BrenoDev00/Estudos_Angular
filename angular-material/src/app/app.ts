@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-
+import { CustomHeaderComponent } from './shared/components/custom-header/custom-header.component';
+import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
-  imports: [MatButtonModule],
+  imports: [CustomHeaderComponent, RouterOutlet],
   templateUrl: './app.html',
 })
 export class App {
