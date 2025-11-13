@@ -8,12 +8,20 @@
     </div>
 
     <div class="flex items-center gap-4">
+      @if(isLoggedIn()){
+      <img src="/assets/user-profile.png" class="w-10" alt="Imagem de perfil de usuário." />
+      }@else {
       <button matButton="filled">Cadastre-se</button>
-
-      <button matButton="outlined">
+      }
+      <!--  -->
+      @if(isLoggedIn()){
+      <button matButton="outlined" (click)="logout()">Sair</button>
+      }@else {
+      <button matButton="outlined" (click)="login()">
         <mat-icon>exit_to_app</mat-icon>
         Login
       </button>
+      }
     </div>
   </div>
 </header>
