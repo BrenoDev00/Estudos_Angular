@@ -7,6 +7,7 @@
     />
   </section>
 
+  @if(isLoggedIn()){
   <section class="flex justify-center">
     <form class="p-6 rounded-2xl bg-gray-100 basis-5xl mt-10">
       <h1 class="text-3xl text-left">Passagens</h1>
@@ -17,6 +18,31 @@
           <mat-button-toggle value="somente_ida">Somente ida</mat-button-toggle>
         </mat-button-toggle-group>
       </div>
+
+      <div class="mt-6 flex items-center gap-6">
+        <div class="flex items-center gap-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Origem</mat-label>
+            <input matInput placeholder="Origem" />
+            <mat-icon matPrefix>flight_takeoff</mat-icon>
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+
+          <button matIconButton type="button" class="mb-3 cursor-pointer">
+            <mat-icon>sync_alt</mat-icon>
+          </button>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Destino</mat-label>
+            <input matInput placeholder="Destino" />
+            <mat-icon matPrefix>flight_land</mat-icon>
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <button type="submit" matButton="filled" class="mb-4">Buscar</button>
+      </div>
     </form>
   </section>
+  }
 </main>
