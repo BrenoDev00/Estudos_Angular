@@ -9,11 +9,15 @@
 
   @if(isLoggedIn()){
   <section class="flex justify-center">
-    <form class="p-6 rounded-2xl bg-gray-100 basis-5xl mt-10">
+    <form
+      class="p-6 rounded-2xl bg-gray-100 basis-5xl mt-10"
+      [formGroup]="flightForm"
+      (ngSubmit)="handleFormSubmit()"
+    >
       <h1 class="text-3xl text-left">Passagens</h1>
 
       <div class="mt-8">
-        <mat-button-toggle-group aria-label="Font Style">
+        <mat-button-toggle-group aria-label="Font Style" [formControl]="formControls.ticketType">
           <mat-button-toggle value="ida_e_volta">Ida e volta</mat-button-toggle>
           <mat-button-toggle value="somente_ida">Somente ida</mat-button-toggle>
         </mat-button-toggle-group>
@@ -21,26 +25,37 @@
 
       <div class="mt-6 flex items-center gap-6">
         <div class="flex items-center gap-4">
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="outline" class="border-none!">
             <mat-label>Origem</mat-label>
-            <input matInput placeholder="Origem" />
+            <input matInput placeholder="Origem" [formControl]="formControls.origin" />
             <mat-icon matPrefix>flight_takeoff</mat-icon>
             <mat-icon matSuffix>search</mat-icon>
+
+            <mat-error>Campo obrigatório</mat-error>
           </mat-form-field>
 
-          <button matIconButton type="button" class="mb-3 cursor-pointer">
+          <button
+            (click)="toggleFlightFormFields()"
+            matIconButton
+            type="button"
+            class="mb-3 cursor-pointer"
+          >
             <mat-icon>sync_alt</mat-icon>
           </button>
 
           <mat-form-field appearance="outline">
             <mat-label>Destino</mat-label>
-            <input matInput placeholder="Destino" />
+            <input matInput placeholder="Destino" [formControl]="formControls.destination" />
             <mat-icon matPrefix>flight_land</mat-icon>
             <mat-icon matSuffix>search</mat-icon>
+
+            <mat-error>Campo obrigatório</mat-error>
           </mat-form-field>
         </div>
 
-        <button type="submit" matButton="filled" class="mb-4">Buscar</button>
+        <button [disabled]="flightForm.invalid" type="submit" matButton="filled" class="mb-4">
+          Buscar
+        </button>
       </div>
     </form>
   </section>
