@@ -6,7 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
-
+import { MatDialog } from '@angular/material/dialog';
+import { SuccessModalComponent } from './components/success-modal/success-modal.component';
 @Component({
   selector: 'home',
   imports: [
@@ -23,6 +24,7 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 export class HomeComponent {
   private readonly authService = inject(AuthService);
   private readonly fb = inject(FormBuilder);
+  private readonly successModal = inject(MatDialog);
 
   readonly isLoggedIn = this.authService.isLoggedIn;
 
@@ -41,7 +43,15 @@ export class HomeComponent {
     });
   };
 
+  openSuccessModal = (): void => {
+    this.successModal.open(SuccessModalComponent, {
+      data: this.flightForm.value,
+    });
+  };
+
   handleFormSubmit = (): void => {
-    alert(JSON.stringify(this.flightForm.value));
+    this.openSuccessModal();
+
+    this.flightForm.reset();
   };
 }
