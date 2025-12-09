@@ -1,1 +1,13 @@
-<p>Página Sobre</p>
+<main class="py-10">
+  <h1 class="text-center text-2xl">Cotação do dólar em Reais</h1>
+
+  <section>
+    <article class="flex flex-col gap-4 items-center">
+      <p>Cotação do dólar atual: {{ dollarRateData()?.rates?.BRL | currency : 'BRL' }}</p>
+
+      <p>
+        Data de última cotação: <time>{{ dollarRateData()?.date | date : 'd/MM/yyyy' }}</time>
+      </p>
+    </article>
+  </section>
+</main>
