@@ -9,7 +9,7 @@ import { DOLLAR_RATE_ERROR_MESSAGE } from '../shared/constants';
   providedIn: 'root',
 })
 export class DollarRateService {
-  private readonly baseApiUrl = 'htt://api.frankfurter.dev/v1/latest';
+  private readonly baseApiUrl = 'https://api.frankfurter.dev/v1/latest';
 
   private readonly snackbar = inject(SnackbarService);
 
